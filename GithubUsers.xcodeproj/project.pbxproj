@@ -73,9 +73,11 @@
 		66B483042C4AC25D0067CFDF /* GithubUsers */ = {
 			isa = PBXGroup;
 			children = (
-				66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */,
-				66B483072C4AC25D0067CFDF /* ContentView.swift */,
-				66B483092C4AC25E0067CFDF /* Assets.xcassets */,
+				66B483502C4BF01E0067CFDF /* Application */,
+				66B483512C4BF0290067CFDF /* Presentation */,
+				66B483522C4BF04A0067CFDF /* Domain */,
+				66B483532C4BF0E00067CFDF /* Data */,
+				66B4834F2C4BEFE20067CFDF /* Resources */,
 				66B4830B2C4AC25E0067CFDF /* Preview Content */,
 			);
 			path = GithubUsers;
@@ -95,6 +97,68 @@
 				66B483392C4BEC920067CFDF /* GithubUsersTests.swift */,
 			);
 			path = GithubUsersTests;
+			sourceTree = "<group>";
+		};
+		66B4834F2C4BEFE20067CFDF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				66B483092C4AC25E0067CFDF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		66B483502C4BF01E0067CFDF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		66B483512C4BF0290067CFDF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				66B483552C4BF1120067CFDF /* Scene */,
+				66B483542C4BF10A0067CFDF /* Utils */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		66B483522C4BF04A0067CFDF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				66B483562C4BF1580067CFDF /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		66B483532C4BF0E00067CFDF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		66B483542C4BF10A0067CFDF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		66B483552C4BF1120067CFDF /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				66B483072C4AC25D0067CFDF /* ContentView.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		66B483562C4BF1580067CFDF /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
