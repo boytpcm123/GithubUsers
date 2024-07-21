@@ -52,6 +52,17 @@
         }
       }
     },
+    "Getting User Detail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting User Detail"
+          }
+        }
+      }
+    },
     "Github Users" : {
       "extractionState" : "manual",
       "localizations" : {

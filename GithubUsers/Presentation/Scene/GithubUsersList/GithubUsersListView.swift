@@ -11,15 +11,15 @@ struct GithubUsersListView: View {
     @StateObject var viewModel: GithubUsersListViewModel = GithubUsersListViewModel()
 
     @State private var navigateToDetail = false
-    @State private var selectedUser: User?
+    @State private var selectedUserLogin: String = ""
 
     var body: some View {
         NavigationView {
             ZStack {
-                List(viewModel.users, id: \.id) { user in
+                List(viewModel.users, id: \.login) { user in
                     VStack(alignment: .leading, spacing: .zero) {
                         Button(action: {
-                            self.selectedUser = user
+                            self.selectedUserLogin = user.login
                             self.navigateToDetail = true
                         }, label: {
                             UserRow(user: user)
@@ -38,7 +38,7 @@ struct GithubUsersListView: View {
                 }
 
                 // Navigation to detail
-                NavigationLink(destination: GithubUserDetailView(user: selectedUser), isActive: $navigateToDetail) {
+                NavigationLink(destination: GithubUserDetailView(userLogin: selectedUserLogin), isActive: $navigateToDetail) {
                     EmptyView()
                 }
                 .hidden()

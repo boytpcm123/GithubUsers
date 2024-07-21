@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct UserDetail: Codable {
-    let id: Int64
+protocol UserDetailProtocol: UserProtocol {
+    var location: String { get }
+    var followers: Int { get }
+    var following: Int { get }
+}
+
+struct UserDetail: UserDetailProtocol, Codable {
     let login: String
     let avatarUrl: String
     let htmlUrl: String
     let location: String
-    let followers: String
-    let following: String
+    let followers: Int
+    let following: Int
 }

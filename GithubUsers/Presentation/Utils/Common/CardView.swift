@@ -27,7 +27,8 @@ struct CardView: View {
                     }
                     .cardAvatar()
                 } else {
-                    Image(systemName: "person.crop.circle").cardAvatar()
+                    Image(systemName: "person.crop.circle")
+                        .cardAvatar()
                 }
 
                 VStack(alignment: .leading, spacing: .spacingXS) {

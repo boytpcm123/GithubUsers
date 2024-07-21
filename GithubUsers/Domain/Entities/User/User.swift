@@ -7,17 +7,14 @@
 
 import Foundation
 
-struct User: Codable {
-    let id: Int64
+protocol UserProtocol {
+    var login: String { get }
+    var avatarUrl: String { get }
+    var htmlUrl: String { get }
+}
+
+struct User: UserProtocol, Codable {
     let login: String
     let avatarUrl: String
     let htmlUrl: String
-}
-
-extension User: Identifiable, Hashable {}
-
-extension User {
-    static var emptyUser: User {
-        User(id: -1, login: "", avatarUrl: "", htmlUrl: "")
-    }
 }
