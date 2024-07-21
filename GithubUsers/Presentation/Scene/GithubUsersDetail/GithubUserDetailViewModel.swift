@@ -8,18 +8,36 @@
 import Foundation
 import Combine
 
+@MainActor
 class GithubUserDetailViewModel: ObservableObject {
 
     let userLogin: String
 
-    @Published var isLoading: Bool = false
-    @Published var userDetail: UserDetail? = UserDetail.mock
+    private let fetchable: UserDetailFetchable
 
-    init(userLogin: String) {
+    @Published var isLoading: Bool = true
+    @Published var userDetail: UserDetail?
+
+    init(userLogin: String, fetchable: UserDetailFetchable = FetchUserDetailService()) {
         self.userLogin = userLogin
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.userDetail = UserDetail.mock
-//            self.isLoading = false
-//        }
+        self.fetchable = fetchable
+    }
+}
+
+extension GithubUserDetailViewModel {
+    func refresh() async {
+        self.isLoading = true
+        await self.fetchUserDetail()
+    }
+
+    func fetchUserDetail() async {
+        guard self.isLoading else { return }
+        defer {
+            self.isLoading = false
+        }
+
+        if let userDetail = try? await self.fetchable.fetchUserDetail(login: self.userLogin) {
+            self.userDetail = userDetail
+        }
     }
 }

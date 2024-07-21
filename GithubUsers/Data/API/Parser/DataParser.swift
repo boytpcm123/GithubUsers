@@ -9,7 +9,6 @@ import Foundation
 
 protocol DataParserProtocol {
     func parse<T: Decodable>(data: Data) throws -> T
-    func parse<T: Decodable>(data: Data, type: T.Type) throws -> T
 }
 
 class DataParser: DataParserProtocol {

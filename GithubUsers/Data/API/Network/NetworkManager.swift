@@ -7,17 +7,31 @@
 
 import Foundation
 
-final class NetworkManager {
-    let networkService: NetworkAble
+protocol NetworkManagerProtocol {
+  var apiManager: APIManagerProtocol { get }
+  var parser: DataParserProtocol { get }
+  func initRequest<T: Decodable>(with endPoint: EndPoint) async throws -> T
+}
 
-    init(networkService: NetworkAble = NetworkService()) {
-        self.networkService = networkService
+// MARK: - Returns Data Parser
+extension NetworkManagerProtocol {
+  var parser: DataParserProtocol {
+    return DataParser()
+  }
+}
+
+final class NetworkManager {
+    let apiManager: APIManagerProtocol
+
+    init(apiManager: APIManagerProtocol = APIManager()) {
+        self.apiManager = apiManager
     }
 }
 
-extension NetworkManager: UsersFetchable {
-    func fetchUsers(perPage: Int, since: Int) async throws -> [User] {
-        let endpoint = UsersEndPoint(perPage: perPage, since: since)
-        return try await self.networkService.sendRequest(endPoint: endpoint, type: [User].self)
+extension NetworkManager: NetworkManagerProtocol {
+    func initRequest<T: Decodable>(with endPoint: EndPoint) async throws -> T {
+        let data = try await apiManager.initRequest(with: endPoint)
+        let decoded: T = try parser.parse(data: data)
+        return decoded
     }
 }

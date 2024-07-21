@@ -20,7 +20,7 @@ class GithubUsersListViewModel: ObservableObject {
     private(set) var since: Int = 0
     private let itemsPerPage: Int = 20
 
-    init(fetchable: UsersFetchable = NetworkManager()) {
+    init(fetchable: UsersFetchable = FetchUsersService()) {
         self.fetchable = fetchable
     }
 }

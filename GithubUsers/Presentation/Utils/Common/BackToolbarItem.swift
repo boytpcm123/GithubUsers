@@ -13,6 +13,7 @@ struct BackToolbarItem: ViewModifier {
 
     func body(content: Content) -> some View {
         content
+            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(

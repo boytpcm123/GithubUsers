@@ -18,30 +18,38 @@ struct GithubUserDetailView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: .spacingXL) {
-                if let userDetail = viewModel.userDetail, !viewModel.isLoading {
-                    CardView(
-                        avatar: userDetail.avatarUrl,
-                        title: userDetail.login,
-                        content: userDetail.location
-                    )
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: .spacingXL) {
+                    if let userDetail = viewModel.userDetail, !viewModel.isLoading {
+                        CardView(
+                            avatar: userDetail.avatarUrl,
+                            title: userDetail.login,
+                            content: userDetail.location
+                        )
 
-                    UserOtherInfoView(userDetail: userDetail)
+                        UserOtherInfoView(userDetail: userDetail)
 
-                    Spacer()
-                } else {
-                    ProgressView("Getting User Detail")
+                        Spacer()
+                    } else if viewModel.isLoading {
+                        ProgressView("Getting User Detail")
+                    } else {
+                        Text("Server is not reachable.")
+                    }
                 }
+                .padding(.spacingXXS)
+            }
+            .refreshable {
+                await self.viewModel.refresh()
+            }
+            .task {
+                await self.viewModel.fetchUserDetail()
             }
         }
         .padding(.spacingM)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("User Details")
         .backToolbarItem()
-        .refreshable {
-            print("Refresh data")
-        }
     }
 }
 

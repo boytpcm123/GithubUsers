@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-final class NetworkService: NetworkAble {
+protocol APIManagerProtocol {
+  func initRequest(with data: EndPoint) async throws -> Data
+}
+
+final class APIManager: APIManagerProtocol {
 
     private let urlSession: URLSession
 
@@ -16,8 +20,8 @@ final class NetworkService: NetworkAble {
         self.urlSession = urlSession
     }
 
-    func sendRequest<T: Decodable>(endPoint: any EndPoint, type: T.Type) async throws -> T {
-        guard let urlRequest = createRequest(endPoint: endPoint) else {
+    func initRequest(with endPoint: EndPoint) async throws -> Data {
+        guard let urlRequest = endPoint.createRequest() else {
             throw NetworkError.invalidURL
         }
 
@@ -29,11 +33,7 @@ final class NetworkService: NetworkAble {
                 throw NetworkError.unexpectedStatusCode
             }
 
-            guard let value = try? parser.parse(data: data, type: T.self) else {
-                throw NetworkError.decodingFailed
-            }
-
-            return value
+            return data
         } catch let error {
             throw NetworkError.customError(ErrorModel(code: nil, message: error.localizedDescription))
         }
