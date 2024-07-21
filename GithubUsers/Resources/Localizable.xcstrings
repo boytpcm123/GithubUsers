@@ -26,6 +26,12 @@
             "state" : "translated",
             "value" : "Failed to decode data."
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể giải mã dữ liệu."
+          }
         }
       }
     },
@@ -63,13 +69,19 @@
         }
       }
     },
-    "Getting User Detail" : {
+    "Getting User Detail..." : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Getting User Detail"
+            "value" : "Getting User Detail..."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang lấy thông tin người dùng..."
           }
         }
       }
@@ -98,6 +110,12 @@
             "state" : "translated",
             "value" : "Loading More Users..."
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang tải thêm..."
+          }
         }
       }
     },
@@ -119,7 +137,14 @@
       }
     },
     "Looks like there are no users." : {
-
+      "localizations" : {
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Có vẻ như không có dữ liệu."
+          }
+        }
+      }
     },
     "Server is not reachable." : {
       "extractionState" : "manual",
@@ -128,6 +153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Server is not reachable."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máy chủ không thể truy cập được."
           }
         }
       }
@@ -140,6 +171,12 @@
             "state" : "translated",
             "value" : "Service is not reachable, Please try again later!"
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máy chủ không thể truy cập được, vui lòng thử lại sau!"
+          }
         }
       }
     },
@@ -151,6 +188,12 @@
             "state" : "translated",
             "value" : "The server returned an invalid response."
           }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máy chủ trả về phản hồi không hợp lệ."
+          }
         }
       }
     },
@@ -161,6 +204,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "URL string is malformed."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chuỗi URL không đúng định dạng."
           }
         }
       }

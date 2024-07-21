@@ -9,13 +9,13 @@ import Foundation
 
 enum UsersEndPoint: EndPoint {
     case getUsersWith(perPage: Int, since: Int)
-    case getUserDetail(login: String)
+    case getUserDetailWith(login: String)
 
     var path: String {
         switch self {
-        case .getUsersWith(_, _):
+        case .getUsersWith:
             return "/users"
-        case let .getUserDetail(login):
+        case let .getUserDetailWith(login):
             return "/users/\(login)"
         }
     }

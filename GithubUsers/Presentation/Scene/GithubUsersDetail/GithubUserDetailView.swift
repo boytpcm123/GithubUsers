@@ -32,7 +32,7 @@ struct GithubUserDetailView: View {
 
                         Spacer()
                     } else if viewModel.isLoading {
-                        ProgressView("Getting User Detail")
+                        ProgressView("Getting User Detail...")
                     } else {
                         Text("Server is not reachable.")
                     }
