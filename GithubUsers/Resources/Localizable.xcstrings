@@ -18,6 +18,17 @@
         }
       }
     },
+    "Failed to decode data." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to decode data."
+          }
+        }
+      }
+    },
     "Follower" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -80,6 +91,16 @@
         }
       }
     },
+    "Loading More Users..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading More Users..."
+          }
+        }
+      }
+    },
     "Loading Users..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -93,6 +114,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Đang tải người dùng..."
+          }
+        }
+      }
+    },
+    "Server is not reachable." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server is not reachable."
+          }
+        }
+      }
+    },
+    "Service is not reachable, Please try again later!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service is not reachable, Please try again later!"
+          }
+        }
+      }
+    },
+    "The server returned an invalid response." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server returned an invalid response."
+          }
+        }
+      }
+    },
+    "URL string is malformed." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL string is malformed."
           }
         }
       }

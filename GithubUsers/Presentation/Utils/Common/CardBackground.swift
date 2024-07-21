@@ -10,6 +10,7 @@ import SwiftUI
 struct CardBackground: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .navigationBarBackButtonHidden(true)
             .padding(.spacingM)
             .background(Color.cardBackground)
             .cornerRadius(.radiusSL)

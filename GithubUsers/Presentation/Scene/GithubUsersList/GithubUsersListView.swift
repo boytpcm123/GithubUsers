@@ -16,9 +16,22 @@ struct GithubUsersListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                UserListView(users: viewModel.users) { user in
+                UserListView(users: viewModel.users) {
+                    if !viewModel.users.isEmpty && viewModel.hasMoreUsers {
+                        HStack(alignment: .center) {
+                            ProgressView("Loading More Users...")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .task {
+                           await viewModel.fetchMoreUsers()
+                        }
+                    }
+                } selectedRow: { user in
                     self.selectedUserLogin = user.login
                     self.navigateToDetail = true
+                }
+                .task {
+                    await self.viewModel.fetchUsers()
                 }
 
                 // Navigation to detail
@@ -31,46 +44,18 @@ struct GithubUsersListView: View {
                 .hidden()
             }
             .overlay {
-                if viewModel.isLoading && viewModel.users.isEmpty {
-                    ProgressView("Loading Users...")
+                if viewModel.users.isEmpty {
+                    if viewModel.isLoading {
+                        ProgressView("Loading Users...")
+                    } else {
+                        Text("Service is not reachable, Please try again later!")
+                    }
                 }
+
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Github Users") // Warning requires afterScreenUpdates:YES on simulator - Bug os
         }
-    }
-}
-
-struct UserListView: View {
-    let users: [User]
-    let selectedRow: (User) -> Void
-
-    var body: some View {
-        List(users, id: \.login) { user in
-            VStack(alignment: .leading, spacing: .zero) {
-                Button(action: {
-                    selectedRow(user)
-                }, label: {
-                    UserRowView(user: user)
-                })
-            }
-            .listRowSeparator(.hidden)
-            .listRowInsets(.init(top: .spacingXSS, leading: .spacingM, bottom: .spacingXSS, trailing: .spacingM))
-        }
-        .listStyle(.plain)
-    }
-}
-
-struct UserRowView: View {
-    let user: User
-
-    var body: some View {
-        CardView(
-            avatar: user.avatarUrl,
-            title: user.login,
-            content: user.htmlUrl,
-            isLink: true
-        )
     }
 }
 

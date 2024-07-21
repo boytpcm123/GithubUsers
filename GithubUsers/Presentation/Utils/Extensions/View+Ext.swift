@@ -15,4 +15,8 @@ extension View {
     func cardAvatar() -> some View {
         modifier(CardAvatar())
     }
+
+    func backToolbarItem() -> some View {
+        modifier(BackToolbarItem())
+    }
 }

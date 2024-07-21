@@ -12,7 +12,14 @@ struct CardView: View {
     let avatar: String
     let title: String
     let content: String
-    var isLink: Bool = false
+    let isLink: Bool 
+
+    init(avatar: String, title: String, content: String, isLink: Bool = false) {
+        self.avatar = avatar
+        self.title = title
+        self.content = content
+        self.isLink = isLink
+    }
 
     var body: some View {
         VStack {
@@ -35,7 +42,7 @@ struct CardView: View {
                     Text(title.capitalized)
                         .font(.cardTitle)
                         .foregroundColor(.textPrimary)
-                    
+
                     if content.isNotEmpty {
                         if isLink, let url = URL(string: content) {
                             Divider()

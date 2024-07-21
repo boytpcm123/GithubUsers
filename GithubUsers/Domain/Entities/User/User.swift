@@ -8,12 +8,14 @@
 import Foundation
 
 protocol UserProtocol {
+    var id: Int { get }
     var login: String { get }
     var avatarUrl: String { get }
     var htmlUrl: String { get }
 }
 
 struct User: UserProtocol, Codable {
+    let id: Int
     let login: String
     let avatarUrl: String
     let htmlUrl: String

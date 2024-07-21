@@ -11,6 +11,7 @@ import Foundation
 extension UserDetail {
     static let mock = loadUserDetail()
     static let mockDefault = UserDetail(
+        id: 1,
         login: "mojombo",
         avatarUrl: "https://avatars.githubusercontent.com/u/1?v=4",
         htmlUrl: "https://github.com/mojombo",
@@ -29,9 +30,7 @@ private func loadUserDetail() -> UserDetail {
 
     do {
         // Decode the JSON data
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let userDetail = try decoder.decode(UserDetail.self, from: data)
+        let userDetail = try DataParser().parse(data: data, type: UserDetail.self)
 
         // Print the user to verify
         // print(userDetail)

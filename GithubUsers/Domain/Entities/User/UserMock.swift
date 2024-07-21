@@ -21,9 +21,7 @@ private func loadUsers() -> [User] {
 
     do {
         // Decode the JSON data
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let users = try decoder.decode([User].self, from: data)
+        let users = try DataParser().parse(data: data, type: [User].self)
 
         // Print the users to verify
 //        for user in users {
