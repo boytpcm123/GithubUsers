@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     
-    let avatar: URL?
+    let avatar: String
     let title: String
     let content: String
     var isLink: Bool = false
@@ -17,14 +17,18 @@ struct CardView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: .spacingM) {
-                AsyncImage(url: avatar) { phase in
-                    if let image = phase.image {
-                        image.resizable().scaledToFit()
-                    } else {
-                        ProgressView()
+                if let avatarUrl = URL(string: avatar) {
+                    AsyncImage(url: avatarUrl) { phase in
+                        if let image = phase.image {
+                            image.resizable().scaledToFit()
+                        } else {
+                            ProgressView()
+                        }
                     }
+                    .cardAvatar()
+                } else {
+                    Image(systemName: "person.crop.circle").cardAvatar()
                 }
-                .cardAvatar()
 
                 VStack(alignment: .leading, spacing: .spacingXS) {
                     Text(title.capitalized)
@@ -38,14 +42,41 @@ struct CardView: View {
                                 .underline()
                                 .foregroundColor(.textLink)
                         })
-                    } else {
-                        Text(content)
-                            .font(.cardLink)
-                            .foregroundColor(.textSecondary)
+                    } else if !content.isEmpty {
+                        Divider()
+                        HStack {
+                            Image(systemName: "mappin.and.ellipse")
+                                .resizable().scaledToFit()
+                                .frame(height: .iconS)
+                                .foregroundColor(.textSecondary)
+                            Text(content)
+                                .font(.cardLink)
+                                .foregroundColor(.textSecondary)
+                        }
                     }
                 }
             }
         }
         .cardBackground()
     }
+}
+
+#Preview {
+    VStack {
+        CardView(
+            avatar: "https://avatars.githubusercontent.com/u/1?v=4",
+            title: "mojombo",
+            content: "https://github.com/mojombo",
+            isLink: true
+        )
+
+        CardView(
+            avatar: "",
+            title: "defunkt",
+            content: "Vietnam",
+            isLink: false
+        )
+    }
+    .padding()
+
 }

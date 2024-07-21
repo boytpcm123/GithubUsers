@@ -52,7 +52,7 @@ struct UserRow: View {
 
     var body: some View {
         CardView(
-            avatar: user.avatar,
+            avatar: user.avatarUrl,
             title: user.login,
             content: user.htmlUrl,
             isLink: true

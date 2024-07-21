@@ -29,4 +29,9 @@ extension CGFloat {
     static let spacingXL = CGFloat(32)
     static let spacingXLL = CGFloat(48)
     static let spacingXXL = CGFloat(64)
+
+    static let iconS = CGFloat(16)
+    static let iconM = CGFloat(20)
+    static let iconL = CGFloat(24)
+    static let iconXXL = CGFloat(72)
 }
