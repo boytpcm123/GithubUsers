@@ -65,7 +65,7 @@ extension GithubUsersListViewModel {
         self.isLoading = true
         // Get the id of last user to request next page base on the document
         // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
-        since = lastUser.id
+        self.since = lastUser.id
         await fetchUsers()
     }
 }

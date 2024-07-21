@@ -16,7 +16,10 @@ struct GithubUsersListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                UserListView(users: viewModel.users) {
+                UserListView(
+                    users: viewModel.users,
+                    isLoading: viewModel.isLoading
+                ) {
                     if !viewModel.users.isEmpty && viewModel.hasMoreUsers {
                         HStack(alignment: .center) {
                             ProgressView("Loading More Users...")
@@ -29,6 +32,11 @@ struct GithubUsersListView: View {
                 } selectedRow: { user in
                     self.selectedUserLogin = user.login
                     self.navigateToDetail = true
+                } refreshAction: {
+                    Task {
+                        // Refresh data list
+                        await self.viewModel.refresh()
+                    }
                 }
                 .task {
                     await self.viewModel.fetchUsers()
@@ -44,14 +52,9 @@ struct GithubUsersListView: View {
                 .hidden()
             }
             .overlay {
-                if viewModel.users.isEmpty {
-                    if viewModel.isLoading {
-                        ProgressView("Loading Users...")
-                    } else {
-                        Text("Service is not reachable, Please try again later!")
-                    }
+                if viewModel.users.isEmpty && viewModel.isLoading {
+                    ProgressView("Loading Users...")
                 }
-
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Github Users") // Warning requires afterScreenUpdates:YES on simulator - Bug os

@@ -118,6 +118,9 @@
         }
       }
     },
+    "Looks like there are no users." : {
+
+    },
     "Server is not reachable." : {
       "extractionState" : "manual",
       "localizations" : {
