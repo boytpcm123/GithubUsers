@@ -16,25 +16,9 @@ struct GithubUsersListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(viewModel.users, id: \.login) { user in
-                    VStack(alignment: .leading, spacing: .zero) {
-                        Button(action: {
-                            self.selectedUserLogin = user.login
-                            self.navigateToDetail = true
-                        }, label: {
-                            UserRow(user: user)
-                        })
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(.init(top: .spacingXSS, leading: .spacingM, bottom: .spacingXSS, trailing: .spacingM))
-                }
-                .listStyle(.plain)
-                .navigationTitle("Github Users")
-                .navigationBarTitleDisplayMode(.inline)
-                .overlay {
-                    if viewModel.isLoading && viewModel.users.isEmpty {
-                        ProgressView("Loading Users...")
-                    }
+                UserListView(users: viewModel.users) { user in
+                    self.selectedUserLogin = user.login
+                    self.navigateToDetail = true
                 }
 
                 // Navigation to detail
@@ -43,11 +27,38 @@ struct GithubUsersListView: View {
                 }
                 .hidden()
             }
+            .navigationTitle("Github Users")
+            .navigationBarTitleDisplayMode(.inline)
+            .overlay {
+                if viewModel.isLoading && viewModel.users.isEmpty {
+                    ProgressView("Loading Users...")
+                }
+            }
         }
     }
 }
 
-struct UserRow: View {
+struct UserListView: View {
+    let users: [User]
+    let selectedRow: (User) -> Void
+
+    var body: some View {
+        List(users, id: \.login) { user in
+            VStack(alignment: .leading, spacing: .zero) {
+                Button(action: {
+                    selectedRow(user)
+                }, label: {
+                    UserRowView(user: user)
+                })
+            }
+            .listRowSeparator(.hidden)
+            .listRowInsets(.init(top: .spacingXSS, leading: .spacingM, bottom: .spacingXSS, trailing: .spacingM))
+        }
+        .listStyle(.plain)
+    }
+}
+
+struct UserRowView: View {
     let user: User
 
     var body: some View {

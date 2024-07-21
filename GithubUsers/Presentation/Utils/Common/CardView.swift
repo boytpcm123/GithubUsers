@@ -35,24 +35,27 @@ struct CardView: View {
                     Text(title.capitalized)
                         .font(.cardTitle)
                         .foregroundColor(.textPrimary)
-                    if isLink, let url = URL(string: content) {
-                        Divider()
-                        Link(destination: url, label: {
-                            Text(content)
-                                .font(.cardLink)
-                                .underline()
-                                .foregroundColor(.textLink)
-                        })
-                    } else if !content.isEmpty {
-                        Divider()
-                        HStack {
-                            Image(systemName: "mappin.and.ellipse")
-                                .resizable().scaledToFit()
-                                .frame(height: .iconS)
-                                .foregroundColor(.textSecondary)
-                            Text(content)
-                                .font(.cardLink)
-                                .foregroundColor(.textSecondary)
+                    
+                    if content.isNotEmpty {
+                        if isLink, let url = URL(string: content) {
+                            Divider()
+                            Link(destination: url, label: {
+                                Text(content)
+                                    .font(.cardLink)
+                                    .underline()
+                                    .foregroundColor(.textLink)
+                            })
+                        } else {
+                            Divider()
+                            HStack {
+                                Image(systemName: "mappin.and.ellipse")
+                                    .resizable().scaledToFit()
+                                    .frame(height: .iconS)
+                                    .foregroundColor(.textSecondary)
+                                Text(content)
+                                    .font(.cardLink)
+                                    .foregroundColor(.textSecondary)
+                            }
                         }
                     }
                 }

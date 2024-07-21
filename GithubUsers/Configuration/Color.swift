@@ -11,6 +11,7 @@ extension Color {
     static let cardBackground = Color("Gray0")
     static let cardShadow = Color("Gray100").opacity(0.2)
 
+    static let iconBackground = Color("Gray20")
     static let iconAction = Color("Gray100")
 
     static let textPrimary = Color("Gray100")

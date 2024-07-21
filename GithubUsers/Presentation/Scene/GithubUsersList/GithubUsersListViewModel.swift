@@ -9,10 +9,10 @@ import Foundation
 import Combine
 
 class GithubUsersListViewModel: ObservableObject {
-    
+
     @Published var isLoading: Bool = true
     @Published var users: [User] = []
-    
+
     init() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.users = User.mockList

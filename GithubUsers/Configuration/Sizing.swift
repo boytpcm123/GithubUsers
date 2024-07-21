@@ -15,6 +15,8 @@ extension CGFloat {
     static let radiusL = CGFloat(12)
     static let radiusSL = CGFloat(16)
     static let radiusML = CGFloat(20)
+    static let radiusMSL = CGFloat(28)
+    static let radiusMLL = CGFloat(32)
     static let radiusXL = CGFloat(44)
 
     static let spacingXXXS = CGFloat(2)
@@ -29,9 +31,11 @@ extension CGFloat {
     static let spacingXL = CGFloat(32)
     static let spacingXLL = CGFloat(48)
     static let spacingXXL = CGFloat(64)
+    static let spacingXXLL = CGFloat(88)
 
     static let iconS = CGFloat(16)
     static let iconM = CGFloat(20)
     static let iconL = CGFloat(24)
+    static let iconXL = CGFloat(56)
     static let iconXXL = CGFloat(72)
 }
