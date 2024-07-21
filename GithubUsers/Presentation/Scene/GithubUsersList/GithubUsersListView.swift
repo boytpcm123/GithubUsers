@@ -22,18 +22,21 @@ struct GithubUsersListView: View {
                 }
 
                 // Navigation to detail
-                NavigationLink(destination: GithubUserDetailView(userLogin: selectedUserLogin), isActive: $navigateToDetail) {
+                NavigationLink(
+                    destination: GithubUserDetailView(userLogin: selectedUserLogin),
+                    isActive: $navigateToDetail
+                ) {
                     EmptyView()
                 }
                 .hidden()
             }
-            .navigationTitle("Github Users")
-            .navigationBarTitleDisplayMode(.inline)
             .overlay {
                 if viewModel.isLoading && viewModel.users.isEmpty {
                     ProgressView("Loading Users...")
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Github Users") // Warning requires afterScreenUpdates:YES on simulator - Bug os
         }
     }
 }

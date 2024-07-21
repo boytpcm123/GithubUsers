@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct GithubUserDetailView: View {
+
+    @Environment(\.dismiss) var dimiss
+
     @StateObject var viewModel: GithubUserDetailViewModel
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     init(userLogin: String) {
         self._viewModel = .init(wrappedValue: GithubUserDetailViewModel(userLogin: userLogin))
@@ -32,25 +34,27 @@ struct GithubUserDetailView: View {
             }
         }
         .padding(.spacingM)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
-            leading: Button(
-                action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "arrow.backward")
-                        .font(.headline)
-                        .foregroundColor(.iconAction)
-                }
-            )
-        )
-        .navigationTitle("User Details")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("User Details")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(
+                    action: {
+                        dimiss()
+                    }, label: {
+                        Image(systemName: "arrow.backward")
+                            .font(.headline)
+                            .foregroundColor(.iconAction)
+                    }
+                )
+            }
+        }
     }
 }
 
 struct UserOtherInfoView: View {
-    
+
     let userDetail: UserDetail
 
     var body: some View {
