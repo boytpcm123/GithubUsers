@@ -10,11 +10,12 @@ import SwiftUI
 struct GithubUserDetailView: View {
     @StateObject var viewModel: GithubUserDetailViewModel
 
-    init(user: User) {
-        self._viewModel = .init(wrappedValue: GithubUserDetailViewModel(user: user))
+    init(user: User?) {
+        self._viewModel = .init(wrappedValue: GithubUserDetailViewModel(user: user ?? .emptyUser))
     }
 
     var body: some View {
         Text(viewModel.user.login)
+            .navigationTitle("User Details")
     }
 }

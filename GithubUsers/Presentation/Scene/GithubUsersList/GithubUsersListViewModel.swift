@@ -10,12 +10,12 @@ import Combine
 
 class GithubUsersListViewModel: ObservableObject {
     @Published var isLoading: Bool = true
-    @Published var users: [User] = []
+    @Published var users: [User] = User.mockList
 
     init() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.users = User.mockList
-            self.isLoading = false
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.users = User.mockList
+//            self.isLoading = false
+//        }
     }
 }

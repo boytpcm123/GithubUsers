@@ -14,4 +14,18 @@ struct User: Codable {
     let htmlUrl: String
 }
 
-extension User: Identifiable {}
+extension User: Identifiable, Hashable {}
+
+extension User {
+    var avatar: URL? {
+        URL(string: avatarUrl)
+    }
+
+    var html: URL? {
+        URL(string: htmlUrl)
+    }
+
+    static var emptyUser: User {
+        User(id: -1, login: "", avatarUrl: "", htmlUrl: "")
+    }
+}

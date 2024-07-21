@@ -12,6 +12,14 @@
 		66B4830D2C4AC25E0067CFDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B4830C2C4AC25E0067CFDF /* Preview Assets.xcassets */; };
 		66B4833A2C4BEC920067CFDF /* GithubUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B483392C4BEC920067CFDF /* GithubUsersTests.swift */; };
 		66B4835B2C4BF20D0067CFDF /* GithubUsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B4835A2C4BF20D0067CFDF /* GithubUsersListView.swift */; };
+		66C3EAD02C4C100A0097CFF2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */; };
+		66C3EAD32C4C23E70097CFF2 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAD22C4C23E70097CFF2 /* Sizing.swift */; };
+		66C3EAD52C4C24D40097CFF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAD42C4C24D40097CFF2 /* Color.swift */; };
+		66C3EAD72C4C24F20097CFF2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAD62C4C24F20097CFF2 /* Font.swift */; };
+		66C3EAD92C4CB1C20097CFF2 /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C3EAD82C4CB1C20097CFF2 /* ColorPalette.xcassets */; };
+		66C3EADC2C4CBC650097CFF2 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EADB2C4CBC650097CFF2 /* View+Ext.swift */; };
+		66C3EADF2C4CBCB40097CFF2 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EADE2C4CBCB40097CFF2 /* CardBackground.swift */; };
+		66C3EAE12C4CC5830097CFF2 /* CardAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAE02C4CC5830097CFF2 /* CardAvatar.swift */; };
 		66C7918F2C4BF72400ADCA41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7918E2C4BF71E00ADCA41 /* User.swift */; };
 		66C791912C4BFDF800ADCA41 /* GithubUsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C791902C4BFDF500ADCA41 /* GithubUsersListViewModel.swift */; };
 		66C791932C4BFED900ADCA41 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C791922C4BFED700ADCA41 /* UserDetail.swift */; };
@@ -39,6 +47,14 @@
 		66B483372C4BEC920067CFDF /* GithubUsersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubUsersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B483392C4BEC920067CFDF /* GithubUsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersTests.swift; sourceTree = "<group>"; };
 		66B4835A2C4BF20D0067CFDF /* GithubUsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersListView.swift; sourceTree = "<group>"; };
+		66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		66C3EAD22C4C23E70097CFF2 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
+		66C3EAD42C4C24D40097CFF2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		66C3EAD62C4C24F20097CFF2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		66C3EAD82C4CB1C20097CFF2 /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
+		66C3EADB2C4CBC650097CFF2 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		66C3EADE2C4CBCB40097CFF2 /* CardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
+		66C3EAE02C4CC5830097CFF2 /* CardAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAvatar.swift; sourceTree = "<group>"; };
 		66C7918E2C4BF71E00ADCA41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66C791902C4BFDF500ADCA41 /* GithubUsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersListViewModel.swift; sourceTree = "<group>"; };
 		66C791922C4BFED700ADCA41 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
@@ -91,6 +107,7 @@
 				66B483512C4BF0290067CFDF /* Presentation */,
 				66B483522C4BF04A0067CFDF /* Domain */,
 				66B483532C4BF0E00067CFDF /* Data */,
+				66C3EAD12C4C23D50097CFF2 /* Configuration */,
 				66B4834F2C4BEFE20067CFDF /* Resources */,
 				66B4830B2C4AC25E0067CFDF /* Preview Content */,
 			);
@@ -118,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				66B483092C4AC25E0067CFDF /* Assets.xcassets */,
+				66C3EAD82C4CB1C20097CFF2 /* ColorPalette.xcassets */,
+				66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,6 +176,8 @@
 		66B483542C4BF10A0067CFDF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				66C3EADD2C4CBCA10097CFF2 /* Common */,
+				66C3EADA2C4CBC550097CFF2 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -195,6 +216,33 @@
 				66C7919C2C4C09DC00ADCA41 /* GithubUserDetailViewModel.swift */,
 			);
 			path = GithubUsersDetail;
+			sourceTree = "<group>";
+		};
+		66C3EAD12C4C23D50097CFF2 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				66C3EAD62C4C24F20097CFF2 /* Font.swift */,
+				66C3EAD42C4C24D40097CFF2 /* Color.swift */,
+				66C3EAD22C4C23E70097CFF2 /* Sizing.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		66C3EADA2C4CBC550097CFF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				66C3EADB2C4CBC650097CFF2 /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		66C3EADD2C4CBCA10097CFF2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				66C3EADE2C4CBCB40097CFF2 /* CardBackground.swift */,
+				66C3EAE02C4CC5830097CFF2 /* CardAvatar.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		66C791982C4C077900ADCA41 /* User */ = {
@@ -298,6 +346,8 @@
 			files = (
 				66C791972C4C046600ADCA41 /* UsersMock.json in Resources */,
 				66B4830D2C4AC25E0067CFDF /* Preview Assets.xcassets in Resources */,
+				66C3EAD92C4CB1C20097CFF2 /* ColorPalette.xcassets in Resources */,
+				66C3EAD02C4C100A0097CFF2 /* Localizable.xcstrings in Resources */,
 				66B4830A2C4AC25E0067CFDF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,10 +389,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				66C7919B2C4C09B200ADCA41 /* GithubUserDetailView.swift in Sources */,
+				66C3EAD72C4C24F20097CFF2 /* Font.swift in Sources */,
+				66C3EAE12C4CC5830097CFF2 /* CardAvatar.swift in Sources */,
 				66C791952C4C02EB00ADCA41 /* UserMock.swift in Sources */,
+				66C3EADF2C4CBCB40097CFF2 /* CardBackground.swift in Sources */,
+				66C3EAD32C4C23E70097CFF2 /* Sizing.swift in Sources */,
+				66C3EAD52C4C24D40097CFF2 /* Color.swift in Sources */,
 				66B483062C4AC25D0067CFDF /* GithubUsersApp.swift in Sources */,
 				66C7919D2C4C09E300ADCA41 /* GithubUserDetailViewModel.swift in Sources */,
 				66B4835B2C4BF20D0067CFDF /* GithubUsersListView.swift in Sources */,
+				66C3EADC2C4CBC650097CFF2 /* View+Ext.swift in Sources */,
 				66C791912C4BFDF800ADCA41 /* GithubUsersListViewModel.swift in Sources */,
 				66C791932C4BFED900ADCA41 /* UserDetail.swift in Sources */,
 				66C7918F2C4BF72400ADCA41 /* User.swift in Sources */,
