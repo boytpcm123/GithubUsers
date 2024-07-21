@@ -51,34 +51,12 @@ struct UserRow: View {
     let user: User
 
     var body: some View {
-        VStack {
-            HStack(alignment: .top, spacing: .spacingM) {
-                AsyncImage(url: user.avatar) { phase in
-                    if let image = phase.image {
-                        image.resizable().scaledToFit()
-                    } else {
-                        ProgressView()
-                    }
-                }
-                .cardAvatar()
-
-                VStack(alignment: .leading, spacing: .spacingXS) {
-                    Text(user.login.capitalized)
-                        .font(.cardTitle)
-                        .foregroundColor(.cardTitle)
-                    if let html = user.html {
-                        Divider()
-                        Link(destination: html, label: {
-                            Text(user.htmlUrl)
-                                .font(.cardLink)
-                                .underline()
-                                .foregroundColor(.cardLink)
-                        })
-                    }
-                }
-            }
-        }
-        .cardBackground()
+        CardView(
+            avatar: user.avatar,
+            title: user.login,
+            content: user.htmlUrl,
+            isLink: true
+        )
     }
 }
 
