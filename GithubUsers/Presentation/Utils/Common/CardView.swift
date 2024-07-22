@@ -14,8 +14,8 @@ struct CardView: View {
     let content: String
     let isLink: Bool 
 
-    init(avatar: String, title: String, content: String?, isLink: Bool = false) {
-        self.avatar = avatar
+    init(avatar: String?, title: String, content: String?, isLink: Bool = false) {
+        self.avatar = avatar ?? ""
         self.title = title
         self.content = content ?? ""
         self.isLink = isLink

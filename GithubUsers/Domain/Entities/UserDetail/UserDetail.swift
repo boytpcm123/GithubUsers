@@ -16,8 +16,8 @@ protocol UserDetailProtocol: UserProtocol {
 struct UserDetail: UserDetailProtocol, Codable {
     var id: Int64
     let login: String
-    let avatarUrl: String
-    let htmlUrl: String
+    let avatarUrl: String?
+    let htmlUrl: String?
     let location: String?
     let followers: Int
     let following: Int

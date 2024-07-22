@@ -55,7 +55,7 @@ where Data.Element: UserEntity {
                 .listRowSeparator(.hidden)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-                ForEach(users) { user in
+                ForEach(users, id: \.id) { user in
                     VStack(alignment: .leading, spacing: .zero) {
                         Button(action: {
                             selectedRow(user.login ?? "")

@@ -27,11 +27,11 @@ struct UserOtherInfoView: View {
             }
             .frame(maxWidth: .infinity)
 
-            if userDetail.htmlUrl.isNotEmpty {
+            if let htmlUrl = userDetail.htmlUrl, htmlUrl.isNotEmpty {
                 VStack(alignment: .leading, spacing: .spacingXS) {
                     Text("Blog")
                         .font(.cardTitle)
-                    Text(userDetail.htmlUrl)
+                    Text(htmlUrl)
                         .font(.cardSubtitle)
                         .foregroundColor(.textSecondary)
                 }
