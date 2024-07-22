@@ -8,40 +8,49 @@
 import SwiftUI
 
 struct GithubUsersListView: View {
+    
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \UserEntity.id, ascending: true)
+        ],
+        animation: .default
+    )
+    private var users: FetchedResults<UserEntity>
+    
     @StateObject var viewModel: GithubUsersListViewModel = GithubUsersListViewModel()
-
+    
     @State private var navigateToDetail = false
     @State private var selectedUserLogin: String = ""
-
+    
     var body: some View {
         NavigationView {
             ZStack {
                 UserListView(
-                    users: viewModel.users,
+                    users: users,
                     isLoading: viewModel.isLoading
-                ) {
-                    if !viewModel.users.isEmpty && viewModel.hasMoreUsers {
-                        HStack(alignment: .center) {
-                            ProgressView("Loading More Users...")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .task {
-                           await viewModel.fetchMoreUsers()
-                        }
-                    }
-                } selectedRow: { user in
-                    self.selectedUserLogin = user.login
+                ) { userLogin in
+                    self.selectedUserLogin = userLogin
                     self.navigateToDetail = true
                 } refreshAction: {
                     Task {
                         // Refresh data list
                         await self.viewModel.refresh()
                     }
+                } footer: {
+                    if !users.isEmpty && viewModel.hasMoreUsers {
+                        HStack(alignment: .center) {
+                            ProgressView("Loading More Users...")
+                        }
+                        .frame(maxWidth: .infinity)
+                        .task {
+                            await viewModel.fetchMoreUsers()
+                        }
+                    }
                 }
                 .task {
                     await self.viewModel.fetchUsers()
                 }
-
+                
                 // Navigation to detail
                 NavigationLink(
                     destination: GithubUserDetailView(userLogin: selectedUserLogin),
@@ -52,7 +61,7 @@ struct GithubUsersListView: View {
                 .hidden()
             }
             .overlay {
-                if viewModel.users.isEmpty && viewModel.isLoading {
+                if users.isEmpty && viewModel.isLoading {
                     ProgressView("Loading Users...")
                 }
             }
@@ -63,5 +72,15 @@ struct GithubUsersListView: View {
 }
 
 #Preview {
-    GithubUsersListView()
+    GithubUsersListView(
+        viewModel: GithubUsersListViewModel(
+            usersStore: UsersStoreService(
+                context: PersistenceController.preview.container.viewContext
+            )
+        )
+    )
+    .environment(
+        \.managedObjectContext,
+         PersistenceController.preview.container.viewContext
+    )
 }

@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct UserRowView: View {
-    let user: User
+    let user: UserEntity
+
+    init(user: UserEntity) {
+        self.user = user
+    }
 
     var body: some View {
         CardView(
-            avatar: user.avatarUrl,
-            title: user.login,
-            content: user.htmlUrl,
+            avatar: user.avatarUrl ?? "",
+            title: user.login ?? "",
+            content: user.htmlUrl ?? "",
             isLink: true
         )
     }
@@ -22,7 +26,7 @@ struct UserRowView: View {
 
 #Preview {
     VStack {
-        if let user = User.mockList.first {
+        if let user = CoreDataHelper.getTestUserEntity() {
             UserRowView(user: user)
         } else {
             EmptyView()

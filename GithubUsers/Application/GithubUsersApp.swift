@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GithubUsersApp: App {
+
+    let managedObjectContext = PersistenceController.shared.container.viewContext
+
     var body: some Scene {
         WindowGroup {
             GithubUsersListView()
+                .environment(\.managedObjectContext, managedObjectContext)
         }
     }
 }

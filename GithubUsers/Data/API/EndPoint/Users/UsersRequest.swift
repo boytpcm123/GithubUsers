@@ -8,7 +8,7 @@
 import Foundation
 
 enum UsersEndPoint: EndPoint {
-    case getUsersWith(perPage: Int, since: Int)
+    case getUsersWith(perPage: Int, since: Int64)
     case getUserDetailWith(login: String)
 
     var path: String {

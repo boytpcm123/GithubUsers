@@ -7,25 +7,41 @@
 
 import SwiftUI
 
-struct UserListView<Content: View>: View {
-    let users: [User]
+struct UserListView<Content: View, Data: RandomAccessCollection>: View
+where Data.Element: UserEntity {
+    let users: Data
     let isLoading: Bool
     let footer: Content
-    let selectedRow: (User) -> Void
+    let selectedRow: (String) -> Void
     let refreshAction: () -> Void
 
     init(
-        users: [User],
+        users: Data,
         isLoading: Bool = false,
-        @ViewBuilder footer: () -> Content,
-        selectedRow: @escaping (User) -> Void = { _ in },
-        refreshAction: @escaping () -> Void = {}
+        selectedRow: @escaping (String) -> Void = { _ in },
+        refreshAction: @escaping () -> Void = {},
+        @ViewBuilder footer: () -> Content
     ) {
         self.users = users
         self.isLoading = isLoading
         self.footer = footer()
         self.selectedRow = selectedRow
         self.refreshAction = refreshAction
+    }
+
+    init(
+        users: Data,
+        isLoading: Bool = false,
+        selectedRow: @escaping (String) -> Void = { _ in },
+        refreshAction: @escaping () -> Void = {}
+    ) where Content == EmptyView {
+        self.init(
+            users: users,
+            isLoading: isLoading,
+            selectedRow: selectedRow,
+            refreshAction: refreshAction) {
+                EmptyView()
+            }
     }
 
     var body: some View {
@@ -39,10 +55,10 @@ struct UserListView<Content: View>: View {
                 .listRowSeparator(.hidden)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             } else {
-                ForEach(users, id: \.id) { user in
+                ForEach(users) { user in
                     VStack(alignment: .leading, spacing: .zero) {
                         Button(action: {
-                            selectedRow(user)
+                            selectedRow(user.login ?? "")
                         }, label: {
                             UserRowView(user: user)
                         })
@@ -66,8 +82,16 @@ struct UserListView<Content: View>: View {
 }
 
 #Preview {
-    UserListView(
-        users: User.mockList,
-        footer: { EmptyView() }
-    )
+    VStack {
+        NavigationView {
+            UserListView(
+                users: CoreDataHelper.getTestUserEntities()
+            )
+        }
+//        NavigationView {
+//            UserListView(users: []) {
+//                Text("This is a footer view")
+//            }
+//        }
+    }
 }

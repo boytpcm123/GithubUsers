@@ -10,18 +10,22 @@ import Combine
 
 @MainActor
 class GithubUsersListViewModel: ObservableObject {
-
     @Published var isLoading: Bool = true
     @Published var hasMoreUsers: Bool = true
-    @Published var users: [User] = []
+    // @Published var users: [User] = []
 
-    private let fetchable: UsersFetchable
+    private let usersFetchable: UsersFetchable
+    private let usersStore: UsersStore
 
-    private(set) var since: Int = 0
+    private(set) var since: Int64 = 0
     private let itemsPerPage: Int = 20
 
-    init(fetchable: UsersFetchable = FetchUsersService()) {
-        self.fetchable = fetchable
+    init(
+        usersFetchable: UsersFetchable = FetchUsersService(),
+        usersStore: UsersStore = UsersStoreService()
+    ) {
+        self.usersFetchable = usersFetchable
+        self.usersStore = usersStore
     }
 }
 
@@ -39,16 +43,19 @@ extension GithubUsersListViewModel {
         }
 
         do {
-            let users = try await self.fetchable.fetchUsers(
+            let users = try await self.usersFetchable.fetchUsers(
                 perPage: self.itemsPerPage,
                 since: self.since
             )
 
-            if since == 0 {
-                self.users = users
-            } else {
-                self.users += users
-            }
+            self.since = users.last?.id ?? 0
+            try await usersStore.save(users: users)
+
+//            if since == 0 {
+//                self.users = users
+//            } else {
+//                self.users += users
+//            }
 
             print("Requesting since \(since)")
 
@@ -61,11 +68,10 @@ extension GithubUsersListViewModel {
     }
 
     func fetchMoreUsers() async {
-        guard !self.isLoading, let lastUser = self.users.last else { return }
+        guard !self.isLoading else { return }
         self.isLoading = true
         // Get the id of last user to request next page base on the document
         // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
-        self.since = lastUser.id
         await fetchUsers()
     }
 }

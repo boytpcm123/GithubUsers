@@ -8,17 +8,17 @@
 import Foundation
 
 protocol UserDetailProtocol: UserProtocol {
-    var location: String { get }
+    var location: String? { get }
     var followers: Int { get }
     var following: Int { get }
 }
 
 struct UserDetail: UserDetailProtocol, Codable {
-    var id: Int
+    var id: Int64
     let login: String
     let avatarUrl: String
     let htmlUrl: String
-    let location: String
+    let location: String?
     let followers: Int
     let following: Int
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UsersFetchable {
-    func fetchUsers(perPage: Int, since: Int) async throws -> [User]
+    func fetchUsers(perPage: Int, since: Int64) async throws -> [User]
 }

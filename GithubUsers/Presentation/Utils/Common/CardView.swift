@@ -14,10 +14,10 @@ struct CardView: View {
     let content: String
     let isLink: Bool 
 
-    init(avatar: String, title: String, content: String, isLink: Bool = false) {
+    init(avatar: String, title: String, content: String?, isLink: Bool = false) {
         self.avatar = avatar
         self.title = title
-        self.content = content
+        self.content = content ?? ""
         self.isLink = isLink
     }
 
@@ -42,18 +42,19 @@ struct CardView: View {
                     Text(title.capitalized)
                         .font(.cardTitle)
                         .foregroundColor(.textPrimary)
+                        .lineLimit(1)
 
                     if content.isNotEmpty {
+                        Divider()
                         if isLink, let url = URL(string: content) {
-                            Divider()
                             Link(destination: url, label: {
                                 Text(content)
                                     .font(.cardLink)
                                     .underline()
                                     .foregroundColor(.textLink)
+                                    .lineLimit(1)
                             })
                         } else {
-                            Divider()
                             HStack {
                                 Image(systemName: "mappin.and.ellipse")
                                     .resizable().scaledToFit()
@@ -62,10 +63,16 @@ struct CardView: View {
                                 Text(content)
                                     .font(.cardLink)
                                     .foregroundColor(.textSecondary)
+                                    .lineLimit(1)
                             }
                         }
+                    } else {
+                        Color(.clear)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 0)
                     }
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .cardBackground()
@@ -77,14 +84,21 @@ struct CardView: View {
         CardView(
             avatar: "https://avatars.githubusercontent.com/u/1?v=4",
             title: "mojombo",
-            content: "https://github.com/mojombo",
+            content: "https://github.com/mojombomojombomojombomojombo",
             isLink: true
+        )
+
+        CardView(
+            avatar: "https://avatars.githubusercontent.com/u/25?v=4",
+            title: "githubusercontent",
+            content: "Vietnam",
+            isLink: false
         )
 
         CardView(
             avatar: "",
             title: "defunkt",
-            content: "Vietnam",
+            content: "",
             isLink: false
         )
     }

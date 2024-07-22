@@ -13,7 +13,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for index in 0..<10 {
+        for index in 0..<20 {
             var user = User.mockList[index]
             user.toManagedObject(context: viewContext)
         }
