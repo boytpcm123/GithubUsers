@@ -67,7 +67,7 @@ struct UserListView<Content: View>: View {
 
 #Preview {
     UserListView(
-        users: [],
+        users: User.mockList,
         footer: { EmptyView() }
     )
 }

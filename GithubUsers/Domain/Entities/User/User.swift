@@ -15,8 +15,10 @@ protocol UserProtocol {
 }
 
 struct User: UserProtocol, Codable {
-    let id: Int
+    var id: Int
     let login: String
     let avatarUrl: String
     let htmlUrl: String
 }
+
+extension User: Identifiable {}

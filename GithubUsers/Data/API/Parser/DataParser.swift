@@ -23,7 +23,18 @@ class DataParser: DataParserProtocol {
         return try jsonDecoder.decode(T.self, from: data)
     }
 
-    func parse<T: Decodable>(data: Data, type: T.Type) throws -> T {
-        return try jsonDecoder.decode(T.self, from: data)
+    func getJsonDataFrom<T: Decodable>(fileName: String) -> T? {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            print("Failed to get JSON mock data from \(fileName)")
+            return nil
+        }
+        
+        do {
+            return try parse(data: data)
+        } catch {
+            print("Failed to decode JSON from \(fileName) with error \(error.localizedDescription)")
+            return nil
+        }
     }
 }

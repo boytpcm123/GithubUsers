@@ -18,7 +18,7 @@ actor FetchUserDetailService {
 // MARK: - UsersFetchable
 extension FetchUserDetailService: UserDetailFetchable {
     func fetchUserDetail(login: String) async throws -> UserDetail? {
-        let requestData = UsersEndPoint.getUserDetail(login: login)
+        let requestData = UsersEndPoint.getUserDetailWith(login: login)
 
         do {
             let user: UserDetail = try await self.networkManager.initRequest(with: requestData)

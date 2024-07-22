@@ -42,7 +42,7 @@ struct UserOtherInfoView: View {
 
 #Preview {
     VStack {
-        UserOtherInfoView(userDetail: UserDetail.mockDefault)
+        UserOtherInfoView(userDetail: UserDetail.mock)
     }
     .padding()
 }

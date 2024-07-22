@@ -22,23 +22,8 @@ extension UserDetail {
 }
 
 private func loadUserDetail() -> UserDetail {
-    guard let url = Bundle.main.url(forResource: "UserMock", withExtension: "json"),
-          let data = try? Data(contentsOf: url) else {
-        print("Failed to decode JSON mock data")
+    guard let userDetail: UserDetail = DataParser().getJsonDataFrom(fileName: "UserDetailMock") else {
         return UserDetail.mockDefault
     }
-
-    do {
-        // Decode the JSON data
-        let userDetail = try DataParser().parse(data: data, type: UserDetail.self)
-
-        // Print the user to verify
-        // print(userDetail)
-
-        return userDetail
-    } catch {
-        print("Failed to decode JSON: \(error.localizedDescription)")
-    }
-
-    return UserDetail.mockDefault
+    return userDetail
 }
