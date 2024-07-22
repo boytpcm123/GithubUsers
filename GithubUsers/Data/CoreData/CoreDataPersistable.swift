@@ -8,7 +8,7 @@
 import CoreData
 
 protocol UUIDIdentifiable: Identifiable {
-    var id: Int? { get set }
+    var id: Int64 { get set }
 }
 
 protocol CoreDataPersistable: UUIDIdentifiable {
@@ -63,19 +63,14 @@ extension CoreDataPersistable where ManagedType: NSManagedObject {
 
     mutating func toManagedObject(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) -> ManagedType {
         let persistedValue: ManagedType
-        if let id = self.id {
-            let fetchRequest = ManagedType.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
-            if let results = try? context.fetch(fetchRequest),
-               let firstResult = results.first as? ManagedType {
-                persistedValue = firstResult
-            } else {
-                persistedValue = ManagedType.init(context: context)
-                self.id = persistedValue.value(forKey: "id") as? Int
-            }
+        let fetchRequest = ManagedType.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
+        if let results = try? context.fetch(fetchRequest),
+           let firstResult = results.first as? ManagedType {
+            persistedValue = firstResult
         } else {
             persistedValue = ManagedType.init(context: context)
-            self.id = persistedValue.value(forKey: "id") as? Int
+            self.id = persistedValue.value(forKey: "id") as? Int64 ?? -1
         }
 
         return setValuesFromMirror(persistedValue: persistedValue)

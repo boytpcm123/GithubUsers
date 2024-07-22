@@ -7,19 +7,22 @@
 
 import CoreData
 
-extension UserDetail {
-    init(managedObject: UserDetailEntity) {
-        self.id = managedObject.id
-        self.login = managedObject.login ?? ""
-        self.avatarUrl = managedObject.avatarUrl
-        self.htmlUrl = managedObject.htmlUrl
-        self.location = managedObject.location
-        self.followers = Int(managedObject.followers)
-        self.following = Int(managedObject.following)
-    }
+extension UserDetail: CoreDataUtils {
+    typealias ManagedType = UserDetailEntity
+
+//    init(managedObject: UserDetailEntity) {
+//        self.id = managedObject.id
+//        self.login = managedObject.login ?? ""
+//        self.avatarUrl = managedObject.avatarUrl
+//        self.htmlUrl = managedObject.htmlUrl
+//        self.location = managedObject.location
+//        self.followers = Int(managedObject.followers)
+//        self.following = Int(managedObject.following)
+//    }
 
     mutating func toManagedObject(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
-        guard checkForExistingUser(id: id, context: context) == false else { return }
+        guard checkForExistingData(id: id, context: context) == false else { return }
+        
         let persistedValue = UserDetailEntity.init(context: context)
         persistedValue.id = self.id
         persistedValue.login = self.login
@@ -30,15 +33,5 @@ extension UserDetail {
         persistedValue.followersText = self.followersText
         persistedValue.following = Int64(self.following)
         persistedValue.followingText = self.followingText
-    }
-
-    private func checkForExistingUser(id: Int64, context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) -> Bool {
-        let fetchRequest = UserDetailEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
-
-        if let results = try? context.fetch(fetchRequest), results.first != nil {
-            return true
-        }
-        return false
     }
 }

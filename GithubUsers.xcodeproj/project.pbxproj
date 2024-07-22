@@ -19,6 +19,7 @@
 		666E100C2C4E491A002ED078 /* UserDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100B2C4E491A002ED078 /* UserDetailStore.swift */; };
 		666E100E2C4E4949002ED078 /* UserDetailFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */; };
 		666E10102C4E49C0002ED078 /* UserDetailStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */; };
+		666E10122C4E6B13002ED078 /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E10112C4E6B13002ED078 /* CoreDataUtils.swift */; };
 		66B483062C4AC25D0067CFDF /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */; };
 		66B4830A2C4AC25E0067CFDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B483092C4AC25E0067CFDF /* Assets.xcassets */; };
 		66B4830D2C4AC25E0067CFDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B4830C2C4AC25E0067CFDF /* Preview Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		666E100B2C4E491A002ED078 /* UserDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStore.swift; sourceTree = "<group>"; };
 		666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailFetchableMock.swift; sourceTree = "<group>"; };
 		666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStoreService.swift; sourceTree = "<group>"; };
+		666E10112C4E6B13002ED078 /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 		66B483022C4AC25D0067CFDF /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		66B483092C4AC25E0067CFDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,7 +155,6 @@
 			children = (
 				664D37CC2C4D6FEB003B66A9 /* User+CoreData.swift */,
 				666E10092C4E4556002ED078 /* UserDetail+CoreData.swift */,
-				664D37CE2C4D7209003B66A9 /* CoreDataPersistable.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -385,7 +386,9 @@
 			isa = PBXGroup;
 			children = (
 				664D37CB2C4D6FC8003B66A9 /* extensions */,
+				666E10112C4E6B13002ED078 /* CoreDataUtils.swift */,
 				664D37D82C4E0D98003B66A9 /* CoreDataHelper.swift */,
+				664D37CE2C4D7209003B66A9 /* CoreDataPersistable.swift */,
 				664D37C92C4D6ECE003B66A9 /* Persistence.swift */,
 				664D37C62C4D6B55003B66A9 /* GithubUsers.xcdatamodeld */,
 			);
@@ -612,6 +615,7 @@
 				66C3EAD72C4C24F20097CFF2 /* Font.swift in Sources */,
 				664D37CD2C4D6FEB003B66A9 /* User+CoreData.swift in Sources */,
 				664D37C82C4D6B56003B66A9 /* GithubUsers.xcdatamodeld in Sources */,
+				666E10122C4E6B13002ED078 /* CoreDataUtils.swift in Sources */,
 				66C3EAE12C4CC5830097CFF2 /* CardAvatar.swift in Sources */,
 				66C3EAEA2C4CEA300097CFF2 /* String+Ext.swift in Sources */,
 				664D37D12C4E0896003B66A9 /* UsersStore.swift in Sources */,

@@ -43,12 +43,15 @@ struct GithubUsersListView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .task {
-                            await viewModel.fetchMoreUsers()
+                            let since = users.last?.id ?? 0
+                            await viewModel.fetchMoreUsers(since: since)
                         }
                     }
                 }
                 .task {
-                    await self.viewModel.fetchUsers()
+                    if users.isEmpty {
+                        await self.viewModel.refresh()
+                    }
                 }
                 
                 // Navigation to detail
@@ -76,6 +79,7 @@ struct GithubUsersListView: View {
 #Preview {
     GithubUsersListView(
         viewModel: GithubUsersListViewModel(
+            usersFetchable: UsersFetchableMock(),
             usersStore: UsersStoreService(
                 context: PersistenceController.preview.container.viewContext
             )

@@ -16,7 +16,7 @@ class GithubUserDetailViewModel: ObservableObject {
     private let userDetailFetchable: UserDetailFetchable
     private let userDetailStore: UserDetailStore
 
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool = false
 
     init(
         userLogin: String,
@@ -35,7 +35,7 @@ extension GithubUserDetailViewModel {
         await self.fetchUserDetail()
     }
 
-    func fetchUserDetail() async {
+    private func fetchUserDetail() async {
         guard self.isLoading else { return }
         defer {
             self.isLoading = false

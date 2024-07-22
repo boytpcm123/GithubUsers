@@ -54,7 +54,9 @@ struct GithubUserDetailView: View {
                 await self.viewModel.refresh()
             }
             .task {
-                await self.viewModel.fetchUserDetail()
+                if userFetchedResults.first == nil {
+                    await self.viewModel.refresh()
+                }
             }
         }
         .padding(.spacingM)

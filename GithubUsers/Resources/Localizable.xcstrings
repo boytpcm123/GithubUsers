@@ -138,6 +138,12 @@
     },
     "Looks like there are no users." : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Looks like there are no users."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",

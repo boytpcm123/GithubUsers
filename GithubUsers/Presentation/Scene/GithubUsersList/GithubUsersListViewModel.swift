@@ -35,7 +35,15 @@ extension GithubUsersListViewModel {
         await self.fetchUsers()
     }
 
-    func fetchUsers() async {
+    func fetchMoreUsers(since: Int64) async {
+        self.isLoading = true
+        // Get the id of last user to request next page base on the document
+        // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
+        self.since = since
+        await fetchUsers()
+    }
+
+    private func fetchUsers() async {
         guard self.isLoading else { return }
         defer {
             self.isLoading = false
@@ -48,22 +56,13 @@ extension GithubUsersListViewModel {
                 since: self.since
             )
 
-            self.since = users.last?.id ?? 0
             try await usersStore.save(users: users)
+            print("saved users data")
 
             // If number of users less than itemsPerPage -> No more page
             hasMoreUsers = users.count == itemsPerPage
         } catch let error {
-            hasMoreUsers = false
             print(error.localizedDescription)
         }
-    }
-
-    func fetchMoreUsers() async {
-        guard !self.isLoading else { return }
-        self.isLoading = true
-        // Get the id of last user to request next page base on the document
-        // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
-        await fetchUsers()
     }
 }
