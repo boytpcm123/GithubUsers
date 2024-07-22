@@ -53,7 +53,9 @@ struct GithubUsersListView: View {
                 
                 // Navigation to detail
                 NavigationLink(
-                    destination: GithubUserDetailView(userLogin: selectedUserLogin),
+                    destination: GithubUserDetailView(
+                        GithubUserDetailViewModel(userLogin: selectedUserLogin)
+                    ),
                     isActive: $navigateToDetail
                 ) {
                     EmptyView()

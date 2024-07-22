@@ -27,7 +27,9 @@ extension UserDetail {
         persistedValue.htmlUrl = self.htmlUrl
         persistedValue.location = self.location
         persistedValue.followers = Int64(self.followers)
+        persistedValue.followersText = self.followersText
         persistedValue.following = Int64(self.following)
+        persistedValue.followingText = self.followingText
     }
 
     private func checkForExistingUser(id: Int64, context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) -> Bool {

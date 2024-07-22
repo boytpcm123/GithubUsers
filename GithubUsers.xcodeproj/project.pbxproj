@@ -16,6 +16,9 @@
 		664D37D92C4E0D98003B66A9 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37D82C4E0D98003B66A9 /* CoreDataHelper.swift */; };
 		664D37DB2C4E1255003B66A9 /* UsersFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37DA2C4E1255003B66A9 /* UsersFetchableMock.swift */; };
 		666E100A2C4E4556002ED078 /* UserDetail+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E10092C4E4556002ED078 /* UserDetail+CoreData.swift */; };
+		666E100C2C4E491A002ED078 /* UserDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100B2C4E491A002ED078 /* UserDetailStore.swift */; };
+		666E100E2C4E4949002ED078 /* UserDetailFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */; };
+		666E10102C4E49C0002ED078 /* UserDetailStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */; };
 		66B483062C4AC25D0067CFDF /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */; };
 		66B4830A2C4AC25E0067CFDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B483092C4AC25E0067CFDF /* Assets.xcassets */; };
 		66B4830D2C4AC25E0067CFDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B4830C2C4AC25E0067CFDF /* Preview Assets.xcassets */; };
@@ -79,6 +82,9 @@
 		664D37D82C4E0D98003B66A9 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		664D37DA2C4E1255003B66A9 /* UsersFetchableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersFetchableMock.swift; sourceTree = "<group>"; };
 		666E10092C4E4556002ED078 /* UserDetail+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDetail+CoreData.swift"; sourceTree = "<group>"; };
+		666E100B2C4E491A002ED078 /* UserDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStore.swift; sourceTree = "<group>"; };
+		666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailFetchableMock.swift; sourceTree = "<group>"; };
+		666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStoreService.swift; sourceTree = "<group>"; };
 		66B483022C4AC25D0067CFDF /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
 		66B483092C4AC25E0067CFDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				66C3EB1B2C4D60A20097CFF2 /* UserDetailFetchable.swift */,
+				666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */,
+				666E100B2C4E491A002ED078 /* UserDetailStore.swift */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				66C3EB192C4D606F0097CFF2 /* FetchUserDetailService.swift */,
+				666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -622,7 +631,9 @@
 				66C3EB0A2C4D44B00097CFF2 /* UserRowView.swift in Sources */,
 				66C3EB0F2C4D486F0097CFF2 /* BackToolbarItem.swift in Sources */,
 				66C3EAFD2C4D1FF70097CFF2 /* APIManager.swift in Sources */,
+				666E10102C4E49C0002ED078 /* UserDetailStoreService.swift in Sources */,
 				66C7919D2C4C09E300ADCA41 /* GithubUserDetailViewModel.swift in Sources */,
+				666E100E2C4E4949002ED078 /* UserDetailFetchableMock.swift in Sources */,
 				66B4835B2C4BF20D0067CFDF /* GithubUsersListView.swift in Sources */,
 				66C3EB1C2C4D60A20097CFF2 /* UserDetailFetchable.swift in Sources */,
 				66C3EAF72C4D1D430097CFF2 /* APIConstants.swift in Sources */,
@@ -638,6 +649,7 @@
 				66C791932C4BFED900ADCA41 /* UserDetail.swift in Sources */,
 				66C7918F2C4BF72400ADCA41 /* User.swift in Sources */,
 				66C3EB1A2C4D606F0097CFF2 /* FetchUserDetailService.swift in Sources */,
+				666E100C2C4E491A002ED078 /* UserDetailStore.swift in Sources */,
 				66C3EAFF2C4D23B80097CFF2 /* NetworkManager.swift in Sources */,
 				66C3EAEC2C4D01FE0097CFF2 /* IconInfoView.swift in Sources */,
 				666E100A2C4E4556002ED078 /* UserDetail+CoreData.swift in Sources */,

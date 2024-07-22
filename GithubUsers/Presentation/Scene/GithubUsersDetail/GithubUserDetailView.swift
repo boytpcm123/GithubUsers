@@ -11,9 +11,16 @@ struct GithubUserDetailView: View {
 
     @StateObject var viewModel: GithubUserDetailViewModel
 
-    init(userLogin: String) {
+    @FetchRequest var userFetchedResults: FetchedResults<UserDetailEntity>
+
+    init(_ viewModel: GithubUserDetailViewModel) {
         self._viewModel = .init(
-            wrappedValue: GithubUserDetailViewModel(userLogin: userLogin)
+            wrappedValue: viewModel
+        )
+        _userFetchedResults = FetchRequest<UserDetailEntity>(
+            sortDescriptors: [],
+            predicate: NSPredicate(format: "login == %@", viewModel.userLogin),
+            animation: .default
         )
     }
 
@@ -21,14 +28,18 @@ struct GithubUserDetailView: View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: .spacingXL) {
-                    if let userDetail = viewModel.userDetail, !viewModel.isLoading {
+                    if let userDetail = userFetchedResults.first, !viewModel.isLoading {
                         CardView(
                             avatar: userDetail.avatarUrl,
-                            title: userDetail.login,
+                            title: userDetail.login ?? "",
                             content: userDetail.location
                         )
 
-                        UserOtherInfoView(userDetail: userDetail)
+                        UserOtherInfoView(
+                            followersText: userDetail.followersText,
+                            followingText: userDetail.followingText,
+                            htmlUrl: userDetail.htmlUrl
+                        )
 
                         Spacer()
                     } else if viewModel.isLoading {
@@ -55,6 +66,15 @@ struct GithubUserDetailView: View {
 
 #Preview {
     NavigationView {
-        GithubUserDetailView(userLogin: "mojombo")
+        GithubUserDetailView(
+            GithubUserDetailViewModel(
+                userLogin: "lukas",
+                userDetailFetchable: UserDetailFetchableMock(),
+                userDetailStore: UserDetailStoreService(
+                    context: PersistenceController.preview.container.viewContext
+                )
+            )
+        )
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

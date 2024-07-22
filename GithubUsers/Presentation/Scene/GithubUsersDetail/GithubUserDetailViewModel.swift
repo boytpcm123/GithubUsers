@@ -13,14 +13,19 @@ class GithubUserDetailViewModel: ObservableObject {
 
     let userLogin: String
 
-    private let fetchable: UserDetailFetchable
+    private let userDetailFetchable: UserDetailFetchable
+    private let userDetailStore: UserDetailStore
 
     @Published var isLoading: Bool = true
-    @Published var userDetail: UserDetail?
 
-    init(userLogin: String, fetchable: UserDetailFetchable = FetchUserDetailService()) {
+    init(
+        userLogin: String,
+        userDetailFetchable: UserDetailFetchable = FetchUserDetailService(),
+        userDetailStore: UserDetailStore = UserDetailStoreService()
+    ) {
         self.userLogin = userLogin
-        self.fetchable = fetchable
+        self.userDetailFetchable = userDetailFetchable
+        self.userDetailStore = userDetailStore
     }
 }
 
@@ -36,8 +41,14 @@ extension GithubUserDetailViewModel {
             self.isLoading = false
         }
 
-        if let userDetail = try? await self.fetchable.fetchUserDetail(login: self.userLogin) {
-            self.userDetail = userDetail
+        print("Get user login", userLogin)
+
+        do {
+            let userDetail = try await self.userDetailFetchable.fetchUserDetail(login: self.userLogin)
+            try await userDetailStore.save(user: userDetail)
+        } catch {
+            print(error.localizedDescription)
         }
+
     }
 }

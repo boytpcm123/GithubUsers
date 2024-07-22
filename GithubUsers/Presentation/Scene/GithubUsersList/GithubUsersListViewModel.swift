@@ -12,7 +12,6 @@ import Combine
 class GithubUsersListViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var hasMoreUsers: Bool = true
-    // @Published var users: [User] = []
 
     private let usersFetchable: UsersFetchable
     private let usersStore: UsersStore
@@ -43,6 +42,7 @@ extension GithubUsersListViewModel {
         }
 
         do {
+            print("Requesting Users list since \(since)")
             let users = try await self.usersFetchable.fetchUsers(
                 perPage: self.itemsPerPage,
                 since: self.since
@@ -50,14 +50,6 @@ extension GithubUsersListViewModel {
 
             self.since = users.last?.id ?? 0
             try await usersStore.save(users: users)
-
-//            if since == 0 {
-//                self.users = users
-//            } else {
-//                self.users += users
-//            }
-
-            print("Requesting since \(since)")
 
             // If number of users less than itemsPerPage -> No more page
             hasMoreUsers = users.count == itemsPerPage

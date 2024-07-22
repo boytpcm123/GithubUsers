@@ -9,25 +9,32 @@ import SwiftUI
 
 struct UserOtherInfoView: View {
 
-    let userDetail: UserDetail
+    let followersText: String?
+    let followingText: String?
+    let htmlUrl: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: .spacingM) {
             HStack(alignment: .center, spacing: .spacingXXLL) {
-                IconInfoView(
-                    image: "person.2.fill",
-                    value: userDetail.followersText,
-                    content: "Follower"
-                )
-                IconInfoView(
-                    image: "medal.fill",
-                    value: userDetail.followingText,
-                    content: "Following"
-                )
+                if let followersText, followersText.isNotEmpty {
+                    IconInfoView(
+                        image: "person.2.fill",
+                        value: followersText,
+                        content: "Follower"
+                    )
+                }
+                if let followingText, followingText.isNotEmpty {
+                    IconInfoView(
+                        image: "medal.fill",
+                        value: followingText,
+                        content: "Following"
+                    )
+                }
+
             }
             .frame(maxWidth: .infinity)
 
-            if let htmlUrl = userDetail.htmlUrl, htmlUrl.isNotEmpty {
+            if let htmlUrl, htmlUrl.isNotEmpty {
                 VStack(alignment: .leading, spacing: .spacingXS) {
                     Text("Blog")
                         .font(.cardTitle)
@@ -42,7 +49,16 @@ struct UserOtherInfoView: View {
 
 #Preview {
     VStack {
-        UserOtherInfoView(userDetail: UserDetail.mock)
+        UserOtherInfoView(
+            followersText: "100+",
+            followingText: "10+",
+            htmlUrl: "https://github.com/takeo"
+        )
+        UserOtherInfoView(
+            followersText: "",
+            followingText: "200",
+            htmlUrl: ""
+        )
     }
     .padding()
 }
