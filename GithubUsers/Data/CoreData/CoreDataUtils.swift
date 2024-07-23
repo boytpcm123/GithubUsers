@@ -17,7 +17,7 @@ protocol CoreDataUtils {
 extension CoreDataUtils {
 //    func checkForExistingData(id: Int64, context: NSManagedObjectContext) -> Bool {
 //        let fetchRequest = ManagedType.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
+//        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
 //
 //        if let results = try? context.fetch(fetchRequest), results.first != nil {
 //            return true
@@ -27,7 +27,7 @@ extension CoreDataUtils {
 
     func getExistingData(id: Int64, context: NSManagedObjectContext) -> ManagedType? {
         let fetchRequest = ManagedType.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id = %d", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
 
         if let results = try? context.fetch(fetchRequest), let result = results.first {
             return result as? Self.ManagedType

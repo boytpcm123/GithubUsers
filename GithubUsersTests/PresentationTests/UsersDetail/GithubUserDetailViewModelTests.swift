@@ -32,7 +32,11 @@ final class GithubUserDetailViewModelTests: XCTestCase {
     }
 
     func testUserDetailLoginNameWhenInit() async {
-        XCTAssertEqual(uat.userLogin, UserDetail.mock.login, "The view model's userLogin should be \(UserDetail.mock.login), but it is \(uat.userLogin)")
+        let testUserLogin: String = "mojombo"
+        XCTAssertEqual(
+            uat.userLogin, testUserLogin, 
+            "The view model's userLogin should be \(testUserLogin), but it is \(uat.userLogin)"
+        )
     }
 
     func testFetchUserDetailLoadingState() async {
