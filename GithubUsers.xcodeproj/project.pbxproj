@@ -326,8 +326,8 @@
 		66B483552C4BF1120067CFDF /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				66B483572C4BF1D20067CFDF /* GithubUsersList */,
-				66B483582C4BF1E00067CFDF /* GithubUsersDetail */,
+				66B483572C4BF1D20067CFDF /* UsersList */,
+				66B483582C4BF1E00067CFDF /* UsersDetail */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -341,24 +341,24 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		66B483572C4BF1D20067CFDF /* GithubUsersList */ = {
+		66B483572C4BF1D20067CFDF /* UsersList */ = {
 			isa = PBXGroup;
 			children = (
 				66C3EB062C4D43BA0097CFF2 /* View */,
 				66B4835A2C4BF20D0067CFDF /* GithubUsersListView.swift */,
 				66C791902C4BFDF500ADCA41 /* GithubUsersListViewModel.swift */,
 			);
-			path = GithubUsersList;
+			path = UsersList;
 			sourceTree = "<group>";
 		};
-		66B483582C4BF1E00067CFDF /* GithubUsersDetail */ = {
+		66B483582C4BF1E00067CFDF /* UsersDetail */ = {
 			isa = PBXGroup;
 			children = (
 				66C3EB0B2C4D481D0097CFF2 /* View */,
 				66C7919A2C4C099A00ADCA41 /* GithubUserDetailView.swift */,
 				66C7919C2C4C09DC00ADCA41 /* GithubUserDetailViewModel.swift */,
 			);
-			path = GithubUsersDetail;
+			path = UsersDetail;
 			sourceTree = "<group>";
 		};
 		66C3EAD12C4C23D50097CFF2 /* Configuration */ = {
