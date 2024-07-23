@@ -43,6 +43,18 @@ final class GithubUsersListViewModelTests: XCTestCase {
         XCTAssertNotEqual(uat.refreshID, refreshID, "The view model's refreshID shouldn't be equal, but it is")
     }
 
+    func testSinceAndItemsPerPageValueWhenInit() async {
+        XCTAssertEqual(
+            uat.since, 0,
+            "The view model's since should be 20, but it is \(uat.since)"
+        )
+
+        XCTAssertEqual(
+            uat.itemsPerPage, 20,
+            "The view model's itemsPerPage should be 20, but it is \(uat.itemsPerPage)"
+        )
+    }
+
     func testUpdateSinceOnFetchMoreUsers() async {
         XCTAssertEqual(
             uat.since, 0,

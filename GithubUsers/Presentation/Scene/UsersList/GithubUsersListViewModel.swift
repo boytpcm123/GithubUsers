@@ -10,15 +10,16 @@ import Combine
 
 @MainActor
 class GithubUsersListViewModel: ObservableObject {
+
+    let itemsPerPage: Int = 20
+    private(set) var since: Int64 = 0
+
     @Published var isLoading: Bool = true
     @Published var hasMoreUsers: Bool = true
     @Published var refreshID: UUID = UUID()
 
     private let usersFetchable: UsersFetchable
     private let usersStore: UsersStore
-
-    private(set) var since: Int64 = 0
-    private let itemsPerPage: Int = 20
 
     init(
         usersFetchable: UsersFetchable = FetchUsersService(),

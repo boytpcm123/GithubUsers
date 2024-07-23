@@ -8,16 +8,16 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-  var apiManager: APIManagerProtocol { get }
-  var parser: DataParserProtocol { get }
-  func initRequest<T: Decodable>(with endPoint: EndPoint) async throws -> T
+    var apiManager: APIManagerProtocol { get }
+    var parser: DataParserProtocol { get }
+    func initRequest<T: Decodable>(with endPoint: EndPoint) async throws -> T
 }
 
 // MARK: - Returns Data Parser
 extension NetworkManagerProtocol {
-  var parser: DataParserProtocol {
-    return DataParser()
-  }
+    var parser: DataParserProtocol {
+        return DataParser()
+    }
 }
 
 final class NetworkManager {
