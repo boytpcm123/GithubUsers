@@ -1,0 +1,43 @@
+name: Build and test project
+
+on:
+  workflow_dispatch:
+  push:
+    
+jobs:
+
+  build:
+    name: Build and Test
+    runs-on: "macos-14"
+    env:
+      SCHEME: ${{ 'GithubUsers' }}
+      PROJECT: ${{ 'GithubUsers.xcodeproj' }}
+      SIMULATOR: ${{ 'iPhone SE (3rd generation)' }}
+      XCRESULT_PATH: ${{ 'TestResults.xcresult' }}
+      XCRESULT_NAME: ${{ 'TestResults.zip' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          fetch-depth: 0 # Required due to the way Git works, without it this action won't be able to find any or the correct tags
+  
+      - name: Cleanup
+        run: |
+          xcodebuild clean -project "$PROJECT" -scheme $SCHEME | xcpretty
+
+      - name: Test
+        run: |
+          xcodebuild -resultBundlePath ${{ env.XCRESULT_PATH }} \
+          test -project "$PROJECT" -scheme "$SCHEME" \
+          -configuration Debug -sdk iphonesimulator \
+          -destination "platform=iOS Simulator,name=$SIMULATOR" \
+          -enableCodeCoverage YES -derivedDataPath DerivedData | xcpretty -s  \
+
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: ${{ env.XCRESULT_PATH }}
+          show-code-coverage: false
+          show-passed-tests: false
+        if: success() || failure()
