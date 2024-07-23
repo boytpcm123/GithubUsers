@@ -1,0 +1,101 @@
+included: # paths to include during linting. `--path` is ignored if present.
+  - GithubUsers
+  - GithubUsersTests
+  - GithubUsersUITests
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Derived
+  - DerivedData
+analyzer_rules: # Rules run by `swiftlint analyze`
+  - explicit_self
+
+disabled_rules: # rule identifiers turned on by default to exclude from running
+  # - trailing_newline
+  - line_length
+  - trailing_whitespace
+  - comment_spacing
+  # - todo
+  # - cyclomatic_complexity
+  # - private_over_fileprivate
+  # - function_parameter_count
+  # - identifier_name
+  # - redundant_string_enum_value
+  # - block_based_kvo
+  # - force_cast
+  # - shorthand_operator
+  # - large_tuple
+  # - legacy_random
+
+  #- colon
+  #- comma
+  #- control_statement
+  #- function_body_length
+  #- vertical_whitespace
+  #- trailing_semicolon
+  #- unused_closure_parameter
+  #- type_name
+  #- orphaned_doc_comment
+  #- redundant_optional_initialization
+  #- no_space_in_method_call
+  #- vertical_parameter_alignment
+  #- opening_brace
+  #- file_length
+  #- type_body_length
+  #- trailing_comma
+  #- operator_whitespace
+  #- switch_case_alignment
+  #- unneeded_break_in_switch
+  #- leading_whitespace
+  #- class_delegate_protocol
+  #- statement_position
+  #- multiple_closures_with_trailing_closure
+  #- comma_inheritance
+  #- empty_enum_arguments
+  #- syntactic_sugar
+  #- implicit_getter
+  #- redundant_void_return
+  #- nesting
+  #- force_try
+  #- redundant_discardable_let
+
+# some rules are turned off by default, so you need to opt-in
+opt_in_rules:
+  #- empty_count
+
+# Alternatively, specify all rules explicitly by uncommenting this option:
+# only_rules: # delete `disabled_rules` & `opt_in_rules` if using this
+  - empty_parameters
+  - vertical_whitespace
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+# force_cast: warning # implicitly
+# force_try:
+#   severity: warning # explicitly
+function_body_length:
+  - 200 # warning
+  - 300 # error
+type_body_length:
+  - 1400 # warning
+  - 1500 # error
+# or they can set both explicitly
+file_length:
+  warning: 1400
+  error: 1500
+# naming rules can set warnings/errors for min_length and max_length
+# additionally they can set excluded names
+type_name:
+  min_length: 1 # only warning
+  max_length: # warning and error
+    warning: 50
+    error: 60
+  excluded: iPhone # excluded via string
+  allowed_symbols: ["_"] # these are allowed in type names
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging)

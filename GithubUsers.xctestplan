@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "77E0374C-4631-4514-BF6F-2FDE561DD7C9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GithubUsers.xcodeproj",
+        "identifier" : "66B483362C4BEC920067CFDF",
+        "name" : "GithubUsersTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "GithubUsersUITests\/testLaunchPerformance()"
+      ],
+      "target" : {
+        "containerPath" : "container:GithubUsers.xcodeproj",
+        "identifier" : "66FB04CE2C4EC2180050C24B",
+        "name" : "GithubUsersUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
