@@ -32,8 +32,8 @@ struct GithubUsersListView: View {
                     self.selectedUserLogin = userLogin
                     self.navigateToDetail = true
                 } refreshAction: {
+                    // Refresh data list
                     Task {
-                        // Refresh data list
                         await self.viewModel.refresh()
                     }
                 } footer: {
@@ -50,6 +50,7 @@ struct GithubUsersListView: View {
                 }
                 .id(viewModel.refreshID) // Add refresh ID here to refresh list view
                 .task {
+                    // First check empty data then fetch
                     if users.isEmpty {
                         await self.viewModel.fetchData()
                     }

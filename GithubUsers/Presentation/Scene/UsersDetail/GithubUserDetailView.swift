@@ -51,9 +51,13 @@ struct GithubUserDetailView: View {
                 .padding(.spacingXXS)
             }
             .refreshable {
-                await self.viewModel.fetchData()
+                // Refresh user detail
+                Task {
+                    await self.viewModel.fetchData()
+                }
             }
             .task {
+                // First check if nil get data
                 if userFetchedResults.first == nil {
                     await self.viewModel.fetchData()
                 }

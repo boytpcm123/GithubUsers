@@ -12,7 +12,7 @@ import Combine
 class GithubUsersListViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var hasMoreUsers: Bool = true
-    @Published var refreshID = UUID()
+    @Published var refreshID: UUID = UUID()
 
     private let usersFetchable: UsersFetchable
     private let usersStore: UsersStore
