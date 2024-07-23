@@ -89,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		662EC57E2C4FEFC800A06D16 /* GithubUsers.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubUsers.xctestplan; sourceTree = SOURCE_ROOT; };
 		664D37C72C4D6B56003B66A9 /* GithubUsers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubUsers.xcdatamodel; sourceTree = "<group>"; };
 		664D37C92C4D6ECE003B66A9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		664D37CC2C4D6FEB003B66A9 /* User+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreData.swift"; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 		66B4830B2C4AC25E0067CFDF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				662EC57E2C4FEFC800A06D16 /* GithubUsers.xctestplan */,
 				66C791962C4C045B00ADCA41 /* UsersMock.json */,
 				66C3EAE72C4CE4EC0097CFF2 /* UserDetailMock.json */,
 				66B4830C2C4AC25E0067CFDF /* Preview Assets.xcassets */,
