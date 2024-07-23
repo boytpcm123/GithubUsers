@@ -16,7 +16,7 @@ class GithubUserDetailViewModel: ObservableObject {
     private let userDetailFetchable: UserDetailFetchable
     private let userDetailStore: UserDetailStore
 
-    @Published var isLoading: Bool = false
+    @Published var isLoading: Bool = true
 
     init(
         userLogin: String,

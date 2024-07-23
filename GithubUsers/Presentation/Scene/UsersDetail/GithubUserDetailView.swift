@@ -28,7 +28,7 @@ struct GithubUserDetailView: View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: .spacingXL) {
-                    if let userDetail = userFetchedResults.first, !viewModel.isLoading {
+                    if let userDetail = userFetchedResults.first {
                         CardView(
                             avatar: userDetail.avatarUrl,
                             title: userDetail.login ?? "",
@@ -44,6 +44,7 @@ struct GithubUserDetailView: View {
                         Spacer()
                     } else if viewModel.isLoading {
                         ProgressView("Getting User Detail...")
+                            .frame(maxWidth: .infinity)
                     } else {
                         Text("Server is not reachable.")
                     }
@@ -74,7 +75,7 @@ struct GithubUserDetailView: View {
     NavigationView {
         GithubUserDetailView(
             GithubUserDetailViewModel(
-                userLogin: "mojombo",
+                userLogin: UserDetail.mock.login,
                 userDetailFetchable: UserDetailFetchableMock(),
                 userDetailStore: UserDetailStoreService(
                     context: PersistenceController.preview.container.viewContext
