@@ -69,13 +69,13 @@ To keep all current and upcoming iOS projects aligned, we standardize an iOS pro
 
 #### Light Mode
 
-<img width="300" src="images/UserList-Light.png" alt="MVVM SWiftUI list" />        <img width="300" src="images/UserDetail-Light.png"" alt="MVVM SWiftUI detail"/>
+<img width="300" src="Images/UserList-Light.png" alt="MVVM SWiftUI list" />       <img width="300" src="Images/UserDetail-Light.png" alt="MVVM SWiftUI detail"/>
 
 
 
 #### Dark Mode
 
-<img width="300" src="images/UserList-Dark.png" alt="MVVM SWiftUI list" />        <img width="300" src="images/UserDetail-Dark.png" alt="MVVM SWiftUI detail"/>
+<img width="300" src="Images/UserList-Dark.png" alt="MVVM SWiftUI list" />        <img width="300" src="Images/UserDetail-Dark.png" alt="MVVM SWiftUI detail"/>
 
 
 ## Thanks for viewing
