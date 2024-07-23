@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6636A8162C500D5A00B4E458 /* FetchUserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636A80F2C500D5A00B4E458 /* FetchUserDetailService.swift */; };
+		6636A8172C500D5A00B4E458 /* UserDetailStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636A8102C500D5A00B4E458 /* UserDetailStoreService.swift */; };
+		6636A8182C500D5A00B4E458 /* FetchUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636A8122C500D5A00B4E458 /* FetchUsersService.swift */; };
+		6636A8192C500D5A00B4E458 /* UsersStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636A8132C500D5A00B4E458 /* UsersStoreService.swift */; };
 		664D37C82C4D6B56003B66A9 /* GithubUsers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664D37C62C4D6B55003B66A9 /* GithubUsers.xcdatamodeld */; };
 		664D37CA2C4D6ECE003B66A9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37C92C4D6ECE003B66A9 /* Persistence.swift */; };
 		664D37CD2C4D6FEB003B66A9 /* User+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37CC2C4D6FEB003B66A9 /* User+CoreData.swift */; };
 		664D37D12C4E0896003B66A9 /* UsersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37D02C4E0896003B66A9 /* UsersStore.swift */; };
-		664D37D72C4E08CA003B66A9 /* UsersStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37D62C4E08CA003B66A9 /* UsersStoreService.swift */; };
 		664D37D92C4E0D98003B66A9 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37D82C4E0D98003B66A9 /* CoreDataHelper.swift */; };
 		664D37DB2C4E1255003B66A9 /* UsersFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D37DA2C4E1255003B66A9 /* UsersFetchableMock.swift */; };
 		666E100A2C4E4556002ED078 /* UserDetail+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E10092C4E4556002ED078 /* UserDetail+CoreData.swift */; };
 		666E100C2C4E491A002ED078 /* UserDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100B2C4E491A002ED078 /* UserDetailStore.swift */; };
 		666E100E2C4E4949002ED078 /* UserDetailFetchableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */; };
-		666E10102C4E49C0002ED078 /* UserDetailStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */; };
 		666E10122C4E6B13002ED078 /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E10112C4E6B13002ED078 /* CoreDataUtils.swift */; };
 		66B483062C4AC25D0067CFDF /* GithubUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */; };
 		66B4830A2C4AC25E0067CFDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B483092C4AC25E0067CFDF /* Assets.xcassets */; };
@@ -58,8 +60,6 @@
 		66C3EB0D2C4D48260097CFF2 /* UserOtherInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB0C2C4D48260097CFF2 /* UserOtherInfoView.swift */; };
 		66C3EB0F2C4D486F0097CFF2 /* BackToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB0E2C4D486F0097CFF2 /* BackToolbarItem.swift */; };
 		66C3EB112C4D54ED0097CFF2 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB102C4D54ED0097CFF2 /* RequestMethod.swift */; };
-		66C3EB172C4D5C680097CFF2 /* FetchUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB162C4D5C680097CFF2 /* FetchUsersService.swift */; };
-		66C3EB1A2C4D606F0097CFF2 /* FetchUserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB192C4D606F0097CFF2 /* FetchUserDetailService.swift */; };
 		66C3EB1C2C4D60A20097CFF2 /* UserDetailFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EB1B2C4D60A20097CFF2 /* UserDetailFetchable.swift */; };
 		66C7918F2C4BF72400ADCA41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7918E2C4BF71E00ADCA41 /* User.swift */; };
 		66C791912C4BFDF800ADCA41 /* GithubUsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C791902C4BFDF500ADCA41 /* GithubUsersListViewModel.swift */; };
@@ -90,17 +90,19 @@
 
 /* Begin PBXFileReference section */
 		662EC57F2C4FF12C00A06D16 /* GithubUsers.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GithubUsers.xctestplan; sourceTree = SOURCE_ROOT; };
+		6636A80F2C500D5A00B4E458 /* FetchUserDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchUserDetailService.swift; sourceTree = "<group>"; };
+		6636A8102C500D5A00B4E458 /* UserDetailStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailStoreService.swift; sourceTree = "<group>"; };
+		6636A8122C500D5A00B4E458 /* FetchUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchUsersService.swift; sourceTree = "<group>"; };
+		6636A8132C500D5A00B4E458 /* UsersStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersStoreService.swift; sourceTree = "<group>"; };
 		664D37C72C4D6B56003B66A9 /* GithubUsers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubUsers.xcdatamodel; sourceTree = "<group>"; };
 		664D37C92C4D6ECE003B66A9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		664D37CC2C4D6FEB003B66A9 /* User+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreData.swift"; sourceTree = "<group>"; };
 		664D37D02C4E0896003B66A9 /* UsersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStore.swift; sourceTree = "<group>"; };
-		664D37D62C4E08CA003B66A9 /* UsersStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStoreService.swift; sourceTree = "<group>"; };
 		664D37D82C4E0D98003B66A9 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		664D37DA2C4E1255003B66A9 /* UsersFetchableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersFetchableMock.swift; sourceTree = "<group>"; };
 		666E10092C4E4556002ED078 /* UserDetail+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDetail+CoreData.swift"; sourceTree = "<group>"; };
 		666E100B2C4E491A002ED078 /* UserDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStore.swift; sourceTree = "<group>"; };
 		666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailFetchableMock.swift; sourceTree = "<group>"; };
-		666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailStoreService.swift; sourceTree = "<group>"; };
 		666E10112C4E6B13002ED078 /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 		66B483022C4AC25D0067CFDF /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B483052C4AC25D0067CFDF /* GithubUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersApp.swift; sourceTree = "<group>"; };
@@ -143,8 +145,6 @@
 		66C3EB0C2C4D48260097CFF2 /* UserOtherInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOtherInfoView.swift; sourceTree = "<group>"; };
 		66C3EB0E2C4D486F0097CFF2 /* BackToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToolbarItem.swift; sourceTree = "<group>"; };
 		66C3EB102C4D54ED0097CFF2 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
-		66C3EB162C4D5C680097CFF2 /* FetchUsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUsersService.swift; sourceTree = "<group>"; };
-		66C3EB192C4D606F0097CFF2 /* FetchUserDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchUserDetailService.swift; sourceTree = "<group>"; };
 		66C3EB1B2C4D60A20097CFF2 /* UserDetailFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailFetchable.swift; sourceTree = "<group>"; };
 		66C7918E2C4BF71E00ADCA41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66C791902C4BFDF500ADCA41 /* GithubUsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersListViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +182,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6636A8112C500D5A00B4E458 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6636A80F2C500D5A00B4E458 /* FetchUserDetailService.swift */,
+				6636A8102C500D5A00B4E458 /* UserDetailStoreService.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		6636A8142C500D5A00B4E458 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				6636A8122C500D5A00B4E458 /* FetchUsersService.swift */,
+				6636A8132C500D5A00B4E458 /* UsersStoreService.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		6636A8152C500D5A00B4E458 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6636A8112C500D5A00B4E458 /* UserDetail */,
+				6636A8142C500D5A00B4E458 /* Users */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		664D37CB2C4D6FC8003B66A9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,24 +234,6 @@
 				66C3EB1B2C4D60A20097CFF2 /* UserDetailFetchable.swift */,
 				666E100D2C4E4949002ED078 /* UserDetailFetchableMock.swift */,
 				666E100B2C4E491A002ED078 /* UserDetailStore.swift */,
-			);
-			path = UserDetail;
-			sourceTree = "<group>";
-		};
-		664D37D42C4E08AB003B66A9 /* Users */ = {
-			isa = PBXGroup;
-			children = (
-				66C3EB162C4D5C680097CFF2 /* FetchUsersService.swift */,
-				664D37D62C4E08CA003B66A9 /* UsersStoreService.swift */,
-			);
-			path = Users;
-			sourceTree = "<group>";
-		};
-		664D37D52C4E08B1003B66A9 /* UserDetail */ = {
-			isa = PBXGroup;
-			children = (
-				66C3EB192C4D606F0097CFF2 /* FetchUserDetailService.swift */,
-				666E100F2C4E49C0002ED078 /* UserDetailStoreService.swift */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -316,7 +325,6 @@
 			children = (
 				66B483562C4BF1580067CFDF /* Entities */,
 				66C3EB012C4D246A0097CFF2 /* InterfaceRepositories */,
-				66C3EB152C4D5C4E0097CFF2 /* Services */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 		66B483532C4BF0E00067CFDF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				6636A8152C500D5A00B4E458 /* Services */,
 				66C3EAED2C4D1B200097CFF2 /* API */,
 				66C3EAEE2C4D1B250097CFF2 /* CoreData */,
 			);
@@ -555,15 +564,6 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
-		66C3EB152C4D5C4E0097CFF2 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				664D37D42C4E08AB003B66A9 /* Users */,
-				664D37D52C4E08B1003B66A9 /* UserDetail */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		66C791982C4C077900ADCA41 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,20 +759,17 @@
 				66C791952C4C02EB00ADCA41 /* UserMock.swift in Sources */,
 				66C3EAE32C4CC6520097CFF2 /* CardView.swift in Sources */,
 				66C3EADF2C4CBCB40097CFF2 /* CardBackground.swift in Sources */,
-				664D37D72C4E08CA003B66A9 /* UsersStoreService.swift in Sources */,
 				66C3EB082C4D43C50097CFF2 /* UserListView.swift in Sources */,
 				66C3EAD32C4C23E70097CFF2 /* Sizing.swift in Sources */,
 				664D37D92C4E0D98003B66A9 /* CoreDataHelper.swift in Sources */,
 				66C3EB032C4D24A50097CFF2 /* UsersFetchable.swift in Sources */,
 				66C3EB0D2C4D48260097CFF2 /* UserOtherInfoView.swift in Sources */,
-				66C3EB172C4D5C680097CFF2 /* FetchUsersService.swift in Sources */,
 				66C3EB052C4D24F50097CFF2 /* UsersEndPoint.swift in Sources */,
 				66C3EAD52C4C24D40097CFF2 /* Color.swift in Sources */,
 				66B483062C4AC25D0067CFDF /* GithubUsersApp.swift in Sources */,
 				66C3EB0A2C4D44B00097CFF2 /* UserRowView.swift in Sources */,
 				66C3EB0F2C4D486F0097CFF2 /* BackToolbarItem.swift in Sources */,
 				66C3EAFD2C4D1FF70097CFF2 /* APIManager.swift in Sources */,
-				666E10102C4E49C0002ED078 /* UserDetailStoreService.swift in Sources */,
 				66C7919D2C4C09E300ADCA41 /* GithubUserDetailViewModel.swift in Sources */,
 				666E100E2C4E4949002ED078 /* UserDetailFetchableMock.swift in Sources */,
 				66B4835B2C4BF20D0067CFDF /* GithubUsersListView.swift in Sources */,
@@ -786,14 +783,17 @@
 				66C3EB112C4D54ED0097CFF2 /* RequestMethod.swift in Sources */,
 				66C791912C4BFDF800ADCA41 /* GithubUsersListViewModel.swift in Sources */,
 				664D37DB2C4E1255003B66A9 /* UsersFetchableMock.swift in Sources */,
+				6636A8172C500D5A00B4E458 /* UserDetailStoreService.swift in Sources */,
 				66C791932C4BFED900ADCA41 /* UserDetail.swift in Sources */,
 				66C7918F2C4BF72400ADCA41 /* User.swift in Sources */,
-				66C3EB1A2C4D606F0097CFF2 /* FetchUserDetailService.swift in Sources */,
 				666E100C2C4E491A002ED078 /* UserDetailStore.swift in Sources */,
 				66C3EAFF2C4D23B80097CFF2 /* NetworkManager.swift in Sources */,
 				66C3EAEC2C4D01FE0097CFF2 /* IconInfoView.swift in Sources */,
 				666E100A2C4E4556002ED078 /* UserDetail+CoreData.swift in Sources */,
+				6636A8192C500D5A00B4E458 /* UsersStoreService.swift in Sources */,
+				6636A8162C500D5A00B4E458 /* FetchUserDetailService.swift in Sources */,
 				66C3EAF12C4D1B710097CFF2 /* NetworkError.swift in Sources */,
+				6636A8182C500D5A00B4E458 /* FetchUsersService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
