@@ -31,6 +31,7 @@
 		66C106B02C4FBAF700F547B8 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C106AF2C4FBAF700F547B8 /* NetworkManagerMock.swift */; };
 		66C106B22C4FBDD400F547B8 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C106B12C4FBDD400F547B8 /* APIManagerMock.swift */; };
 		66C106B42C4FBE6700F547B8 /* UsersEndPointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C106B32C4FBE6700F547B8 /* UsersEndPointMock.swift */; };
+		66C106B62C4FC67800F547B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C106B52C4FC67800F547B8 /* Launch Screen.storyboard */; };
 		66C3EAD02C4C100A0097CFF2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */; };
 		66C3EAD32C4C23E70097CFF2 /* Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAD22C4C23E70097CFF2 /* Sizing.swift */; };
 		66C3EAD52C4C24D40097CFF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C3EAD42C4C24D40097CFF2 /* Color.swift */; };
@@ -68,7 +69,6 @@
 		66C7919B2C4C09B200ADCA41 /* GithubUserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7919A2C4C099A00ADCA41 /* GithubUserDetailView.swift */; };
 		66C7919D2C4C09E300ADCA41 /* GithubUserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C7919C2C4C09DC00ADCA41 /* GithubUserDetailViewModel.swift */; };
 		66FB04D22C4EC2180050C24B /* GithubUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FB04D12C4EC2180050C24B /* GithubUsersUITests.swift */; };
-		66FB04D42C4EC2180050C24B /* GithubUsersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FB04D32C4EC2180050C24B /* GithubUsersUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +115,7 @@
 		66C106AF2C4FBAF700F547B8 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		66C106B12C4FBDD400F547B8 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
 		66C106B32C4FBE6700F547B8 /* UsersEndPointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersEndPointMock.swift; sourceTree = "<group>"; };
+		66C106B52C4FC67800F547B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		66C3EAD22C4C23E70097CFF2 /* Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizing.swift; sourceTree = "<group>"; };
 		66C3EAD42C4C24D40097CFF2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		66C7919C2C4C09DC00ADCA41 /* GithubUserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetailViewModel.swift; sourceTree = "<group>"; };
 		66FB04CF2C4EC2180050C24B /* GithubUsersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubUsersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66FB04D12C4EC2180050C24B /* GithubUsersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersUITests.swift; sourceTree = "<group>"; };
-		66FB04D32C4EC2180050C24B /* GithubUsersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUsersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +287,7 @@
 				66B483092C4AC25E0067CFDF /* Assets.xcassets */,
 				66C3EAD82C4CB1C20097CFF2 /* ColorPalette.xcassets */,
 				66C3EACF2C4C10090097CFF2 /* Localizable.xcstrings */,
+				66C106B52C4FC67800F547B8 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -583,7 +584,6 @@
 			isa = PBXGroup;
 			children = (
 				66FB04D12C4EC2180050C24B /* GithubUsersUITests.swift */,
-				66FB04D32C4EC2180050C24B /* GithubUsersUITestsLaunchTests.swift */,
 			);
 			path = GithubUsersUITests;
 			sourceTree = "<group>";
@@ -699,6 +699,7 @@
 				66C3EAD92C4CB1C20097CFF2 /* ColorPalette.xcassets in Resources */,
 				66C3EAD02C4C100A0097CFF2 /* Localizable.xcstrings in Resources */,
 				66B4830A2C4AC25E0067CFDF /* Assets.xcassets in Resources */,
+				66C106B62C4FC67800F547B8 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +814,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66FB04D42C4EC2180050C24B /* GithubUsersUITestsLaunchTests.swift in Sources */,
 				66FB04D22C4EC2180050C24B /* GithubUsersUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,6 +958,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GithubUsers/Preview Content\"";
@@ -967,6 +968,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -991,6 +993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GithubUsers/Preview Content\"";
@@ -1000,6 +1003,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
