@@ -18,10 +18,15 @@ extension User: CoreDataUtils {
 //    }
 
     mutating func toManagedObject(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
-        guard checkForExistingData(id: id, context: context) == false else { return }
 
-        let persistedValue = UserEntity.init(context: context)
-        persistedValue.id = self.id
+        var persistedValue: ManagedType
+        if let result = getExistingData(id: id, context: context) {
+            persistedValue = result
+        } else {
+            persistedValue = ManagedType.init(context: context)
+            persistedValue.id = self.id
+        }
+
         persistedValue.login = self.login
         persistedValue.avatarUrl = self.avatarUrl
         persistedValue.htmlUrl = self.htmlUrl

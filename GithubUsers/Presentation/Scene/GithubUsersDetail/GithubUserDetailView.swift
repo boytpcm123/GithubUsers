@@ -51,11 +51,11 @@ struct GithubUserDetailView: View {
                 .padding(.spacingXXS)
             }
             .refreshable {
-                await self.viewModel.refresh()
+                await self.viewModel.fetchData()
             }
             .task {
                 if userFetchedResults.first == nil {
-                    await self.viewModel.refresh()
+                    await self.viewModel.fetchData()
                 }
             }
         }
@@ -70,7 +70,7 @@ struct GithubUserDetailView: View {
     NavigationView {
         GithubUserDetailView(
             GithubUserDetailViewModel(
-                userLogin: "lukas",
+                userLogin: "mojombo",
                 userDetailFetchable: UserDetailFetchableMock(),
                 userDetailStore: UserDetailStoreService(
                     context: PersistenceController.preview.container.viewContext

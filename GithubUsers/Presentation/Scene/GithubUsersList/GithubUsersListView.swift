@@ -16,7 +16,7 @@ struct GithubUsersListView: View {
         animation: .default
     )
     private var users: FetchedResults<UserEntity>
-    
+
     @StateObject var viewModel: GithubUsersListViewModel = GithubUsersListViewModel()
     
     @State private var navigateToDetail = false
@@ -48,9 +48,10 @@ struct GithubUsersListView: View {
                         }
                     }
                 }
+                .id(viewModel.refreshID) // Add refresh ID here to refresh list view
                 .task {
                     if users.isEmpty {
-                        await self.viewModel.refresh()
+                        await self.viewModel.fetchData()
                     }
                 }
                 

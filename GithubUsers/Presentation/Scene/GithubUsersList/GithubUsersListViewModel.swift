@@ -12,6 +12,7 @@ import Combine
 class GithubUsersListViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var hasMoreUsers: Bool = true
+    @Published var refreshID = UUID()
 
     private let usersFetchable: UsersFetchable
     private let usersStore: UsersStore
@@ -30,6 +31,11 @@ class GithubUsersListViewModel: ObservableObject {
 
 extension GithubUsersListViewModel {
     func refresh() async {
+        await self.fetchData()
+        self.refreshID = UUID() // Force refresh list view when data changes
+    }
+
+    func fetchData() async {
         self.since = 0
         self.isLoading = true
         await self.fetchUsers()
@@ -40,7 +46,7 @@ extension GithubUsersListViewModel {
         // Get the id of last user to request next page base on the document
         // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28
         self.since = since
-        await fetchUsers()
+        await self.fetchUsers()
     }
 
     private func fetchUsers() async {

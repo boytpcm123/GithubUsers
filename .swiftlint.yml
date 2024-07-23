@@ -13,7 +13,7 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   # - trailing_newline
   - line_length
   - trailing_whitespace
-  # - comment_spacing
+  - comment_spacing
   # - todo
   # - cyclomatic_complexity
   # - private_over_fileprivate

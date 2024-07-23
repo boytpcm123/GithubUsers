@@ -30,7 +30,7 @@ class GithubUserDetailViewModel: ObservableObject {
 }
 
 extension GithubUserDetailViewModel {
-    func refresh() async {
+    func fetchData() async {
         self.isLoading = true
         await self.fetchUserDetail()
     }
