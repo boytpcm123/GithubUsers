@@ -7,15 +7,16 @@
 
 import CoreData
 
+@MainActor
 enum CoreDataHelper {
-    static let context: NSManagedObjectContext = PersistenceController.shared.container.viewContext
-    static let previewContext: NSManagedObjectContext = PersistenceController.preview.container.viewContext
-    
+    static let context = PersistenceController.shared.container.viewContext
+    static let previewContext = PersistenceController.preview.container.viewContext
+
     static func clearDatabase() {
         let entities = PersistenceController.shared.container.managedObjectModel.entities
-        entities.compactMap(\.name).forEach(clearTable)
+        entities.compactMap(\.name).forEach(CoreDataHelper.clearTable)
     }
-    
+
     private static func clearTable(_ entity: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -30,21 +31,21 @@ enum CoreDataHelper {
 
 // MARK: - Deleting Data
 extension Collection where Element == NSManagedObject, Index == Int {
-    func delete(at indices: IndexSet, inViewContext viewContext: NSManagedObjectContext = CoreDataHelper.context) {
-        indices.forEach { index in
-            viewContext.delete(self[index])
-        }
-        
-        do {
-            try viewContext.save()
-        } catch {
-            fatalError("""
+  func delete(at indices: IndexSet, inViewContext viewContext: NSManagedObjectContext) {
+    indices.forEach { index in
+      viewContext.delete(self[index])
+    }
+
+    do {
+      try viewContext.save()
+    } catch {
+      fatalError("""
         \(#file), \
         \(#function), \
         \(error.localizedDescription)
       """)
-        }
     }
+  }
 }
 
 // MARK: - Xcode Previews Content
@@ -55,7 +56,7 @@ extension CoreDataHelper {
               !results.isEmpty else { return [] }
         return results
     }
-    
+
     static func getTestUserEntity() -> UserEntity? {
         let fetchRequest = UserEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
