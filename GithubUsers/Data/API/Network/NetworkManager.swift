@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkManagerProtocol {
+protocol NetworkManagerProtocol: Sendable {
     var apiManager: APIManagerProtocol { get }
     var parser: DataParserProtocol { get }
     func initRequest<T: Decodable>(with endPoint: EndPoint) async throws -> T

@@ -20,7 +20,16 @@ actor UserDetailStoreService {
 extension UserDetailStoreService: UserDetailStore {
     func save(user: UserDetail?) async throws {
         guard var user else { return }
-        user.toManagedObject(context: context)
-        try context.save()
+        try await withCheckedThrowingContinuation { continuation in
+            context.perform {
+                do {
+                    user.toManagedObject(context: self.context)
+                    try self.context.save()
+                    continuation.resume()
+                } catch {
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 }
