@@ -7,13 +7,14 @@
 
 import CoreData
 
+@MainActor
 enum CoreDataHelper {
     static let context = PersistenceController.shared.container.viewContext
     static let previewContext = PersistenceController.preview.container.viewContext
 
     static func clearDatabase() {
         let entities = PersistenceController.shared.container.managedObjectModel.entities
-        entities.compactMap(\.name).forEach(clearTable)
+        entities.compactMap(\.name).forEach(CoreDataHelper.clearTable)
     }
 
     private static func clearTable(_ entity: String) {
@@ -30,7 +31,7 @@ enum CoreDataHelper {
 
 // MARK: - Deleting Data
 extension Collection where Element == NSManagedObject, Index == Int {
-  func delete(at indices: IndexSet, inViewContext viewContext: NSManagedObjectContext = CoreDataHelper.context) {
+  func delete(at indices: IndexSet, inViewContext viewContext: NSManagedObjectContext) {
     indices.forEach { index in
       viewContext.delete(self[index])
     }

@@ -8,13 +8,13 @@
 import XCTest
 @testable import GithubUsers
 
-@MainActor
 final class GithubUsersListViewModelTests: XCTestCase {
 
     let testContext = PersistenceController.preview.container.newBackgroundContext()
 
     var uat: GithubUsersListViewModel!
 
+    @MainActor
     override func setUpWithError() throws {
         try super.setUpWithError()
 
@@ -31,18 +31,21 @@ final class GithubUsersListViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    @MainActor
     func testFetchUsersLoadingState() async {
         XCTAssertEqual(uat.isLoading, true, "The view model should be loading, but it isn't")
         await uat.fetchData()
         XCTAssertEqual(uat.isLoading, false, "The view model shouldn't be loading, but it is")
     }
 
+    @MainActor
     func testRefreshFetchUsers() async {
         let refreshID = uat.refreshID
         await uat.refresh()
         XCTAssertNotEqual(uat.refreshID, refreshID, "The view model's refreshID shouldn't be equal, but it is")
     }
 
+    @MainActor
     func testSinceAndItemsPerPageValueWhenInit() async {
         XCTAssertEqual(
             uat.since, 0,
@@ -55,6 +58,7 @@ final class GithubUsersListViewModelTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testUpdateSinceOnFetchMoreUsers() async {
         XCTAssertEqual(
             uat.since, 0,
@@ -67,6 +71,7 @@ final class GithubUsersListViewModelTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testFetchUsersEmptyResponse() async {
         uat = GithubUsersListViewModel(
             usersFetchable: EmptyResponseUsersFetcherMock(),
