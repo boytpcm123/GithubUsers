@@ -19,9 +19,18 @@ actor UsersStoreService {
 // MARK: - UsersStore
 extension UsersStoreService: UsersStore {
     func save(users: [User]) async throws {
-        for var user in users {
-            user.toManagedObject(context: context)
+        try await withCheckedThrowingContinuation { continuation in
+            context.perform {
+                do {
+                    for var user in users {
+                        user.toManagedObject(context: self.context)
+                    }
+                    try self.context.save()
+                    continuation.resume()
+                } catch {
+                    continuation.resume(throwing: error)
+                }
+            }
         }
-        try context.save()
     }
 }

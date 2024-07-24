@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol UsersFetchable {
+protocol UsersFetchable: Sendable {
     func fetchUsers(perPage: Int, since: Int64) async throws -> [User]
 }
