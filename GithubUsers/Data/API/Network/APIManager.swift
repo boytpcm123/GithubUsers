@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol APIManagerProtocol {
+protocol APIManagerProtocol: Sendable {
   func initRequest(with data: EndPoint) async throws -> Data
 }
 

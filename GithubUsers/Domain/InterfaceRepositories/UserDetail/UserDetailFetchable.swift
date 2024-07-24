@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol UserDetailFetchable {
+protocol UserDetailFetchable: Sendable {
     func fetchUserDetail(login: String) async throws -> UserDetail?
 }

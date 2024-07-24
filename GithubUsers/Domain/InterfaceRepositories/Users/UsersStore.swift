@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol UsersStore {
+protocol UsersStore: Sendable {
     func save(users: [User]) async throws
 }
