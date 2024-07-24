@@ -9,7 +9,7 @@ import Foundation
 @testable import GithubUsers
 
 final class NetworkManagerMock {
-    var apiManager: APIManagerProtocol
+    let apiManager: APIManagerProtocol
 
     init(apiManager: APIManagerProtocol) {
         self.apiManager = apiManager
