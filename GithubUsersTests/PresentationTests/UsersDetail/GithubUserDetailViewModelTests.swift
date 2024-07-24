@@ -8,13 +8,13 @@
 import XCTest
 @testable import GithubUsers
 
-@MainActor
 final class GithubUserDetailViewModelTests: XCTestCase {
 
     let testContext = PersistenceController.preview.container.newBackgroundContext()
 
     var uat: GithubUserDetailViewModel!
 
+    @MainActor
     override func setUpWithError() throws {
         try super.setUpWithError()
 
@@ -31,6 +31,7 @@ final class GithubUserDetailViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
+    @MainActor
     func testUserDetailLoginNameWhenInit() async {
         let testUserLogin: String = "mojombo"
         XCTAssertEqual(
@@ -39,6 +40,7 @@ final class GithubUserDetailViewModelTests: XCTestCase {
         )
     }
 
+    @MainActor
     func testFetchUserDetailLoadingState() async {
         XCTAssertEqual(uat.isLoading, true, "The view model should be loading, but it isn't")
         await uat.fetchData()

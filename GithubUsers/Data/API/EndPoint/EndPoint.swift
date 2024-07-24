@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol EndPoint: Sendable {
+protocol EndPoint {
     var host: String { get }
     var scheme: String { get }
     var path: String { get }
