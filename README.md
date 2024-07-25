@@ -5,7 +5,7 @@ The purpose of this project is to show the basic aspects of Clean Architecture a
 ## Layers
 
 * **Domain Layer** = Entities + Use Cases + Repositories Interfaces
-* **Data Repositories Layer** = Repositories Implementations (Services) + API (Network) + Persistence DB (CoreData))
+* **Data Repositories Layer** = Repositories Implementations (Services) + API (Network) + Persistence DB (CoreData)
 * **Presentation Layer (MVVM)** = ViewModels + Views
 
 ## Requirements
