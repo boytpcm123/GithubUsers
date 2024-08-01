@@ -16,4 +16,3 @@ struct CardBackground: ViewModifier {
             .shadow(color: Color.cardShadow, radius: .radiusS, x: 1, y: 2)
     }
 }
-
