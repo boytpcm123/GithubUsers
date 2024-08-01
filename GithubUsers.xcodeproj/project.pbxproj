@@ -1163,8 +1163,7 @@
 				664D37C72C4D6B56003B66A9 /* GithubUsers.xcdatamodel */,
 			);
 			currentVersion = 664D37C72C4D6B56003B66A9 /* GithubUsers.xcdatamodel */;
-			name = GithubUsers.xcdatamodeld;
-			path = /Users/thong.nguyenthuong/Documents/ninjaKID/GithubUsers/GithubUsers/Data/CoreData/GithubUsers.xcdatamodeld;
+			path = GithubUsers.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

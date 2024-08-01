@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-@MainActor
-class GithubUserDetailViewModel: ObservableObject {
+@MainActor 
+final class GithubUserDetailViewModel: ObservableObject {
 
     let userLogin: String
 
