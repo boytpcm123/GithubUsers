@@ -36,7 +36,7 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
-    init(inMemory: Bool = false) {
+    private init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "GithubUsers")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
@@ -57,7 +57,10 @@ struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+
+        // Prevent conflict when multi context change the same data
         container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        // Auto update parent view base on data change
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 

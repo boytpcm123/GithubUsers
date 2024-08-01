@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 @MainActor
-class GithubUsersListViewModel: ObservableObject {
+final class GithubUsersListViewModel: ObservableObject {
 
     let itemsPerPage: Int = 20
     private(set) var since: Int64 = 0
@@ -70,6 +70,7 @@ extension GithubUsersListViewModel {
             hasMoreUsers = users.count == itemsPerPage
         } catch let error {
             print(error.localizedDescription)
+            
         }
     }
 }
